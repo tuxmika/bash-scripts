@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Script notification redémarrage après un update de kernel sur Centos
 
 # Variables
