@@ -1,5 +1,8 @@
 #!/bin/bash
+# Tester la disponibilité de vos hôtes avec un script
+# Licence MIT ( http://choosealicense.com/licenses/mit/ )
 
+# Variables
 hotes="xxx.xxx.x.xx xxx.xxx.x.xx"
 compteur=4
 date=$(date +"%d %B %Y - %T")
