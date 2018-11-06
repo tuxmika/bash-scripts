@@ -4,10 +4,9 @@
 
 # Prérequis : Exim, heirloom-mailx
 
+# Variables
 liste="user1 user2"
-
 mail="mail@admin.fr"
-
 expediteur="Changement_mot_de_passe@admin.fr"
 
 for user in $liste
