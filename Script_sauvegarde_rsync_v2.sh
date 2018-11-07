@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script sauvegarde rsync
+# Script sauvegarde rsync V2
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
 
