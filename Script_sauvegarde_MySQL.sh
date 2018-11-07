@@ -32,7 +32,6 @@ if [ ! -d $log ]
 then
 mkdir -p $log
 fi
-
 }
 
 # On écrit les 1er éléments dans le fichier de log
