@@ -3,6 +3,7 @@
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
 
+# Variables
 snapshot="emplacement du snapshot"
 date=`date +%d-%B-%Y`
 jour=`date +%A`
