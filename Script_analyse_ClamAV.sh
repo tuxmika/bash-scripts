@@ -7,7 +7,7 @@
 # Variables
 log="/var/log/clamav/analyse_`date +%d-%m-%Y`.log"
 sujet="Analyse CLAMAV du `date +%d-%m-%Y`"
-expediteur="clamav@sfr.fr"
+expediteur="clamav@mail.fr"
 destinataire="mail@mail.fr"
 emplacement="/home"
 date=`date +%d-%m-%Y`
