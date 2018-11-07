@@ -1,22 +1,21 @@
+MIT License
 
-Licence MIT
+Copyright (c) 2018 Mickaël BONNARD
 
-Droits d'auteur (c) 2018 Mickaël BONNARD
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Par la présente, une autorisation est accordée gratuitement à toute personne qui en obtient une copie.
-de ce logiciel et des fichiers de documentation associés (le "Logiciel"), pour traiter
-dans le logiciel sans restriction, y compris, sans limitation, les droits
-utiliser, copier, modifier, fusionner, publier, distribuer, concéder en sous-licence et / ou vendre
-copies du logiciel, et pour permettre aux personnes à qui le logiciel est
-meublé pour le faire, sous réserve des conditions suivantes:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-L’avis de copyright ci-dessus et cet avis de permission doivent être inclus dans tous les
-des copies ou des parties substantielles du logiciel.
-
-LE LOGICIEL EST FOURNI "EN l’ETAT", SANS AUCUNE GARANTIE, EXPRESSE OU
-IMPLICITE, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES DE QUALITÉ MARCHANDE,
-APTITUDE À UN USAGE PARTICULIER ET SANS INFRACTION. EN AUCUN CAS, LE
-LES AUTEURS OU LES TITULAIRES DE COPYRIGHT SONT RESPONSABLES DE TOUTE RÉCLAMATION, DE DOMMAGES OU D'AUTRES
-RESPONSABILITÉ, QU'IL SOIT DANS UN ACTION DE CONTRAT, DE TORT OU AUTREMENT, RÉSULTANT DE,
-HORS OU EN LIEN AVEC LE LOGICIEL OU L’UTILISATION OU D’AUTRES TRANSACTIONS DANS LE
-LOGICIEL.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
