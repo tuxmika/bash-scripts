@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script notification changement mot de passe
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# AuteuR : Mickaël BONNARD
+# Auteur : Mickaël BONNARD
 # Prérequis : Exim, heirloom-mailx
 
 # Variables
