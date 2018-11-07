@@ -14,7 +14,6 @@ heure=$(date +%H:%M:%S)
 local1="/home/user/dossier1" 
 local2="/home/user/dossier2" 
 distant=:/home/user/sauvegardes/ # ne pas oublier le slash à la fin du nom du répertoire distant
-compteur=5
 mail="mail@admin.com"
 
 # manuel lftp : http://lftp.yar.ru/lftp-man.html
