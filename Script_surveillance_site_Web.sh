@@ -43,7 +43,7 @@ ping=$(ping -c 3 $domaine)
 
 date=$(date '+%d-%m-%Y %H:%M:%S') 
 
-# Alors on envoie le mail d'alerte et on remet le compteur à 0 
+# On envoie le mail d'alerte et on remet le compteur à 0 
 
 echo -e "$heure $i : $statut\n\n$ping" | mail -s "$date : $sujet" $mail 
 
