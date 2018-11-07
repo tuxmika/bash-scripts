@@ -21,7 +21,8 @@ maj_debian(){
 echo -e "-------------------------------------------------------------------------------------------------\n"
 echo -e "\t$jour : $nombre_debian mises à jour disponibles sur $HOSTNAME ($ip)\n"
 for i in $liste_debian ;do
-versions=$(apt-cache policy $i | head -3)echo -e "-------------------------------------------------------------------------------------------------\n"
+versions=$(apt-cache policy $i | head -3)
+echo -e "-------------------------------------------------------------------------------------------------\n"
 echo -e "$versions\n"
 echo -e "informations sur le paquet:
 https://packages.debian.org/fr/stretch/${i}\n"
@@ -40,7 +41,8 @@ liste_centos=$(yum -q check-update | tail -n+2 | awk {'print $1'})
 nombre_centos=$(yum -q check-update | tail -n+2 | wc -l)
 expediteur="mail@admin.fr"
 maj_centos(){
-echo -e "------------------------------------------------------------------------------------------------------\n"echo -e "\t$jour : $nombre_centos mises à jour disponibles sur $HOSTNAME ($ip)\n"
+echo -e "------------------------------------------------------------------------------------------------------\n"
+echo -e "\t$jour : $nombre_centos mises à jour disponibles sur $HOSTNAME ($ip)\n"
 echo -e "------------------------------------------------------------------------------------------------------\n"
 for i in $liste_centos ;do
 actuelle=$(yum list installed $i | awk {'print $1,$2'} | tail -n+3)
