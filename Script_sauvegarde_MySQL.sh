@@ -14,10 +14,10 @@ emplacement='/home/sauvegardes'
 export_erreur='/home/sauvegardes/erreur'
 utilisateur=backupsql
 motdepasse=backuppassword
-base='smf'
-export="export_smf"
-log='/home/mickael/sauvegardes/logs'
-log_erreur=/home/mickael/sauvegardes/erreur/erreur_export_"$(date +"%d%m%Y-%H:%M:%S")".log
+base='mabase'
+export="export_mabase"
+log='/home/sauvegardes/logs'
+log_erreur=/home/sauvegardes/erreur/erreur_export_"$(date +"%d%m%Y-%H:%M:%S")".log
 rotation=8
 
 # On teste la présence de l'emplacement de sauvegarde et du répertoire de logs
@@ -53,6 +53,7 @@ if [ "$?" -eq 0 ]
 then
 ls -lrth $emplacement |awk '{print $NF" "$5}' | tail -1 >> $log/$export-$date.log >> $log/$export-$date.log
 echo "" >> $log/$export-$date.log
+
 # On récupère l'état de l'export dans le dump
 cat $emplacement/$export-$date.sql | tail -1 | tr "-" " " >> $log/$export-$date.log
 else
@@ -82,7 +83,6 @@ ancien=$(ls -1 /home/mickael/sauvegardes/*.sql | head -1)
 if [ $nombre_export -eq $rotation ]
 then
 rm -rf $ancien
-
 fi
 }
 
