@@ -1,5 +1,5 @@
 #!/bin/bash
-#Script monitoring espace disque et températures disques
+# Script monitoring espace disque et températures disques
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
 # Pré-requis : hddtemp
