@@ -1,3 +1,4 @@
+#!/bin/bash
 # Script notification redémarrage après un update de kernel sur Centos
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
