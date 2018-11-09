@@ -94,5 +94,5 @@ suppression
 # On envoie le mail
 cat "$log/$export-$date.log" | mail -s "Export base $base" -r "Sauvegardes<mail@mail.fr>" supermail@mail.net
 
-# Comme les exports en erreur ont une taille nulle, nous pouvons les supprimer
+# nous pouvons les supprimer les exports en erreur
 rm -rf $export_erreur/*.erreur
