@@ -12,8 +12,8 @@
 date=`date +"%d%m%Y-%H:%M:%S"`
 utilisateur=backupsql
 motdepasse=backuppassword
-base='elkarte'
-export="export_elkarte"
+base='ma_base'
+export="export_ma_base"
 repertoire_dump='/home/sauvegardes/dump'
 log='/home/sauvegardes/logs'
 log_erreur=/home/sauvegardes/logs/export-erreur-"$(date +"%d%m%Y-%H:%M:%S")".log
