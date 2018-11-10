@@ -9,7 +9,7 @@
 # Attribution des droits à cet utilisateur.
 # GRANT SELECT, RELOAD, LOCK TABLES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'backupsql'@'localhost'; 
 
-ddate=`date +"%d%m%Y-%H:%M:%S"`
+date=`date +"%d%m%Y-%H:%M:%S"`
 utilisateur=backupsql
 motdepasse=backuppassword
 base='elkarte'
