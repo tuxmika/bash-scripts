@@ -20,8 +20,8 @@ log_erreur=/home/sauvegardes/logs/export-erreur-"$(date +"%d%m%Y-%H:%M:%S")".log
 rotation=8
 destinataire=mail@mail.fr
 
-# On teste la présence de l'repertoire_dump de sauvegarde et du répertoire de logs
-# Si ceux-ci n'existent pas, il seront crées
+# On teste la présence du dossier "repertoire_dump" et du répertoire de logs.
+# Si ceux-ci n'existent pas, il seront crées.
 test_presence()
 
 {
@@ -119,8 +119,11 @@ suppression
 
 cat "$log/$export-$date.log" | mail -s "Export base $base" -r "Sauvegardes<mail@mail.fr>" $destinataire
 
-# Nous pouvons les supprimer les exports en erreur qui ont une taille à 0 et  les logs d'erreur
+# Nous pouvons les supprimer les exports en erreur qui ont une taille à 0 et les logs d'erreur.
+# On supprime également les logs qui ont plus de 15 jours.
 
-find /home/sauvegardes/dump -iname '*.sql'  -type f  -size 0  -exec rm -rf {} \;
+find /home/sauvegardes/dump -iname '*.sql' -type f -size 0 -exec rm -rf {} \;
 
-find /home/sauvegardes/logs -iname '*erreur*'  -type f  -exec rm -rf {} \;
+find /home/sauvegardes/logs -iname '*erreur*' -type f -exec rm -rf {} \;
+
+find /home/sauvegardes/logs -type f -mtime +15 -exec rm -rf {} \;
