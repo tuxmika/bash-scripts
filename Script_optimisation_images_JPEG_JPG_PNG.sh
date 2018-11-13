@@ -38,6 +38,7 @@ if [ $? -ne 0 ]
 then
 
 apt -y install jpegoptim optipng 2>/dev/null
+
 fi
 
 fi
