@@ -1,5 +1,5 @@
 #!/bin/bash
-# Tester la disponibilité de vos hôtes avec un script
+# Script qui va permettre d'optimiser vos images ( .png, .jpeg et .jpg ).
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
 
@@ -49,6 +49,10 @@ clear
 
 # On optimise les photos.
 
+# https://www.systutorials.com/docs/linux/man/1-jpegoptim/
+
 find "${repertoire}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) -exec jpegoptim -P -t --all-progressive --strip-all {} \;
+
+# https://linux.die.net/man/1/optipng
 
 find "${repertoire}" -iname "*.png" -exec optipng -o7 -preserve -strip all {} \;
