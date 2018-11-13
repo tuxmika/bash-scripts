@@ -11,7 +11,7 @@ centos='/etc/centos-release'
 
 if [ -f $centos ]
 
-then
+  then
 
 # On teste si jpegoptim optipng sont installés.
 
@@ -21,11 +21,11 @@ which jpegoptim optipng &>/dev/null
 
 if [ $? -ne 0 ]
 
-then
+    then
 
 yum -y install jpegoptim optipng 2>/dev/null
 
-else
+  else
 
 # Si on est sur une distribution Debian, on teste si jpegoptim optipng sont installés.
 
@@ -35,15 +35,15 @@ which jpegoptim optipng &>/dev/null
 
 if [ $? -ne 0 ]
 
-then
+    then
 
 apt -y install jpegoptim optipng 2>/dev/null
 
-fi
+  fi
 
-fi
+    fi
 
-fi
+  fi
 
 clear
 
