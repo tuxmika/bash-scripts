@@ -20,10 +20,10 @@ echo -e "Le kernel a été mis à jour, un redémarrage est nécessaire.\n\nkern
 
 if [ "$nouveau" != "$actuel" ];then
 
-kernel | mail -s "$sujet" -r "$expediteur" "$destinataire"
+    kernel | mail -s "$sujet" -r "$expediteur" "$destinataire"
 
-else
+    else
 
-exit
+  exit
 
 fi
