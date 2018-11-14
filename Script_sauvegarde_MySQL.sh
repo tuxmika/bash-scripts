@@ -27,19 +27,19 @@ test_presence()
 {
 if [ ! -d $repertoire_dump ]
 
-then
+     then
 
 mkdir -p $repertoire_dump
 
-fi
+   fi
 
 if [ ! -d $log ]
 
-then
+    then
 
 mkdir -p $log
 
-fi
+  fi
 
 }
 
@@ -63,7 +63,7 @@ mysqldump --user=$utilisateur --password=$motdepasse --log-error=$log_erreur $ba
 
 if [ "$?" -eq 0 ]
 
-then
+    then
 
 ls -lrth $repertoire_dump |awk '{print $NF" "$5}' | tail -1 >> $log/$export-$date.log >> $log/$export-$date.log
 
@@ -73,13 +73,13 @@ echo "" >> $log/$export-$date.log
 
 cat $repertoire_dump/$export-$date.sql | tail -1 | tr "-" " " >> $log/$export-$date.log
 
-else
+     else
 
 # Si il y a des erreurs, alors le contenu du fichier de log d'erreur sera affiché dans le mail et on supprimera le log d'erreur
 
 cat $log_erreur >> $log/$export-$date.log
 
-fi
+    fi
 
 }
 
@@ -102,11 +102,11 @@ ancien=$(ls -1 /home/sauvegardes/dump/*.sql | head -1)
 
 if [ $nombre_export -eq $rotation ]
 
-then
+    then
 
 rm -rf $ancien
 
-fi
+   fi
 }
 
 test_presence
