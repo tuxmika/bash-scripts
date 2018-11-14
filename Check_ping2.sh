@@ -11,7 +11,7 @@ for ip in $(seq 1 254)
 
   do
   
-recus=$(ping -c $compteur 192.168.1.$ip | grep 'received' | awk -F',' '{ print $2 }' | awk '{print $1 }') > /dev/null
+recus=$(ping -c $compteur xx.yy.zz.$ip | grep 'received' | awk -F',' '{ print $2 }' | awk '{print $1 }') > /dev/null
 
     case $recus in
 0)echo -e " \033[1;31m`date +%d-%m-%Y-%T` Hôte: 192.168.1.$ip : $compteur paquets transmis, $recus paquets reçus\033[0m";;
