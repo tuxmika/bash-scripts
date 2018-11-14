@@ -10,7 +10,7 @@ date=$(date +"%d %B %Y - %T")
 mail=mail@admin.com
 
 for ip in $hotes
-do
+   do
 # % de paquets perdus
 perte=$(ping -c $compteur $ip | grep -oP '\d+(?=% packet loss)') > /dev/null
 
@@ -19,22 +19,22 @@ if [ $perte -eq 100 ];then
 touch /tmp/critical.$ip
 sujet_critical="$date : PING CRITICAL sur $ip"
 echo "PING CRITICAL sur $ip : paquets perdus $perte%" | mail -s "$sujet_critical" $mail
-else
+   else
 
 # Si % ≥ 50 et < 100 alors alerte warning
 if [ $perte -ge 50 -a $perte -lt 100 ];then
 touch /tmp/warning.$ip
 sujet_warning="$date : PING WARNING sur $ip"
 echo "PING WARNING sur $ip : paquets perdus $perte%" | mail -s "$sujet_warning" $mail
-else
+    else
 
 # Si la perte de perte de paquets revient à 0 après une alerte, une notification OK est envoyée
 if [ -f /tmp/critical.$ip -o -f /tmp/warning.$ip ]
-then
+    then
 rm /tmp/*.$ip
 sujet_ok="$date : PING OK sur $ip"
 echo "PING OK sur $ip : paquets perdus $perte%" | mail -s "$sujet_ok" $mail
-fi
-fi
-fi
+     fi
+  fi
+ fi
 done
