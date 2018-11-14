@@ -23,7 +23,7 @@ if [ ! -d $local ];then
 
 mkdir $local
 
-fi
+   fi
 
 echo "Début de la sauvegarde le $date à `date +%HH%M`" > $log
 
@@ -42,7 +42,7 @@ ssh $user@$ip mkdir $distant/sauvegarde_semaine_$numero
 
 echo "Création du répertoire de la semaine $numero OK" >> $log
 
-fi
+   fi
 
 # On se place sur le chemin du dossier a sauvegarder.
 
