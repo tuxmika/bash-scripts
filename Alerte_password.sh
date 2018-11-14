@@ -11,7 +11,7 @@ expediteur="Changement_mot_de_passe@admin.fr"
 
 for user in $liste
 
-do
+   do
 
 timestamp_secondes=`grep $user /etc/shadow | awk -F ":" '{print $3*86400}'`
 
@@ -25,7 +25,9 @@ difference_secondes=$((date_secondes - dernier_changement_secondes))
 
 difference_jours=$((difference_secondes / 86400))
 
-if [[ $difference_jours -ge 60 ]];then
+if [[ $difference_jours -ge 60 ]]
+
+   then
 
 sujet="Changement mot de passe utilisatateur $user sur $HOSTNAME"
 
@@ -34,6 +36,6 @@ corps=" Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNA
 
 echo -e "$corps" | mail -s "$sujet" -r $expediteur $mail
 
-fi
+   fi
 
 done
