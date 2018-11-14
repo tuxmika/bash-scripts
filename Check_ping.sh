@@ -10,8 +10,8 @@ compteur=3
 for ip in $hotes
 
   do
+  
 recus=$(ping -c $compteur $ip | grep 'received' | awk -F',' '{ print $2 }' | awk '{print $1 }') > /dev/null
-
 
    case $recus in
 0)echo -e " \033[1;31m`date +%d-%m-%Y-%T` Hôte: $ip : $compteur paquets transmis, $recus paquets reçus\033[0m";;
