@@ -11,7 +11,7 @@ compteur=0
 
 while true 
 
-do 
+   do 
 
 # On attend 30 secondes entre chaque check 
 
@@ -19,7 +19,7 @@ sleep 30
 
 for i in $sites 
 
-do 
+    do 
 
 test=$(curl -Is $i | awk '/HTTP/ {print $2}') 
 
@@ -49,10 +49,10 @@ echo -e "$heure $i : $statut\n\n$ping" | mail -s "$date : $sujet" $mail
 
 compteur=0 
 
-fi 
+      fi 
 
-fi 
+    fi 
 
-done 
+  done 
 
 done
