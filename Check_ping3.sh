@@ -4,7 +4,7 @@
 # Auteur : Mickaël BONNARD
 
 # Variables
-hotes="xxx.xxx.x.xx xxx.xxx.x.xx"
+hotes="xxx.xxx.xx.xx yyy.yyy.yy.yy"
 compteur=4
 date=$(date +"%d %B %Y - %T")
 mail=mail@admin.com
