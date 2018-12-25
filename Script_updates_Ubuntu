@@ -8,7 +8,6 @@
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
 log=/home/mickael/.updates
-nom=liste_updates.log
 liste_correctifs=$(apt-get -s dist-upgrade | grep "Inst" | awk '{print $2}')
 
 if [ ! -d $log ];then
