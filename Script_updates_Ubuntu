@@ -1,10 +1,13 @@
 #!/bin/bash
+# Script mises à jour Ubuntu.
+# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Auteur : Mickaël BONNARD
 
-# mettre dans visudo : mickael ALL=NOPASSWD: /usr/bin/updates
+# mettre dans visudo : utilisateur ALL=NOPASSWD: /usr/bin/updates
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
-log=/home/mickael/.updates
+log=/home/utilisateur/.updates
 liste_correctifs=$(apt -s full-upgrade | grep "Inst" | awk '{print $2}')
 
 if [ ! -d $log ];then
@@ -81,7 +84,7 @@ case $? in
 
 echo "" >> $log/update_$jour-$heure
 
-grep "installed" /var/log/dpkg.log | awk {'print $5'} | awk -F : {'print $1'} >> $log/update_$jour-$heure
+grep "status installed" /var/log/dpkg.log | awk {'print $5'} | awk -F : {'print $1'} >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
@@ -105,13 +108,13 @@ echo "Fin du traitement le $(date +%d-%B-%Y) à $(date +%H:%M:%S)" >> $log/updat
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" breizhmika@outlook.fr
+cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" mail@mail.fr
 
 export DEBIAN_FRONTEND=dialog
 
 find $log -type f -mtime +15 -exec rm -rf {} \;
 
-chown -R mickael:mickael $log
+chown -R utilisateur:utilisateur $log
 
 sleep 5s && shutdown -h now
 
