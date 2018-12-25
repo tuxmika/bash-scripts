@@ -3,7 +3,7 @@
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
 
-# mettre dans visudo : utilisateur ALL=NOPASSWD: /usr/bin/updates
+# mettre dans /etc/sudoers : utilisateur ALL=NOPASSWD: /usr/bin/updates
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
@@ -88,7 +88,7 @@ grep "status installed" /var/log/dpkg.log | awk {'print $5'} | awk -F : {'print 
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-echo -e "\tNombre total de mises à jour installées : $nombre" >> $log/update_$jour-$heure;;
+echo -e "\tNombre total de mises à jour installées : $nombre_ok" >> $log/update_$jour-$heure;;
 
 1) cat $log/erreur.log >> $log/update_$jour-$heure;;
 
@@ -117,9 +117,3 @@ find $log -type f -mtime +15 -exec rm -rf {} \;
 chown -R utilisateur:utilisateur $log
 
 sleep 5s && shutdown -h now
-
-
-
-
-
-
