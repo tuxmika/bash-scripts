@@ -1,7 +1,9 @@
 #!/bin/bash
+# Script_updates_Ubuntu.
+# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Auteur : Mickaël BONNARD
 
-# mettre dans visudo : mickael ALL=NOPASSWD: /usr/bin/apt update, /usr/bin/apt full-upgrade, /sbin/shutdown, /usr/bin/updates 
-# mettre dans visudo : mickael ALL=NOPASSWD: /usr/bin/updates
+# mettre dans /etc/sudoers : nom_utilisateur ALL=NOPASSWD: /usr/bin/updates
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
@@ -107,7 +109,7 @@ echo "Fin du traitement le $(date +%d-%B-%Y) à $(date +%H:%M:%S)" >> $log/updat
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" breizhmika@outlook.fr
+cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" mail@mail.fr
 
 export DEBIAN_FRONTEND=dialog
 
