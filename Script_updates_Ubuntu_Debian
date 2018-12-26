@@ -1,9 +1,9 @@
 #!/bin/bash
-# Script mises à jour Ubuntu.
+# Script mises à jour Ubuntu et Debian
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
 
-# mettre dans /etc/sudoers : utilisateur ALL=NOPASSWD: /usr/bin/updates
+# mettre dans /etc/sudoers : nom_utilisateur ALL=NOPASSWD: /usr/bin/updates
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
@@ -114,7 +114,5 @@ cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) s
 export DEBIAN_FRONTEND=dialog
 
 find $log -type f -mtime +15 -exec rm -rf {} \;
-
-chown -R utilisateur:utilisateur $log
 
 sleep 5s && shutdown -h now
