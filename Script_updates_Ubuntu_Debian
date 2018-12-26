@@ -89,7 +89,7 @@ grep "status installed" /var/log/dpkg.log | awk {'print $5'} | awk -F : {'print 
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-echo -e "\tNombre total Les paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure;;
+echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure;;
 
 1) cat $log/erreur.log >> $log/update_$jour-$heure;;
 
