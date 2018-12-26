@@ -86,7 +86,7 @@ case $? in
 
 echo "" >> $log/update_$jour-$heure
 
-grep "status installed" /var/log/dpkg.log | awk {'print $5'} | awk -F : {'print $1'} >> $log/update_$jour-$heure
+grep "status installed" /var/log/dpkg.log | awk {'print $5" "$6" "$7'} >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
