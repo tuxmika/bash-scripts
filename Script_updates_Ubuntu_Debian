@@ -81,7 +81,7 @@ nombre_ok=$(grep "status installed" /var/log/dpkg.log | awk {'print $5'} | awk -
 
 case $? in
 
-0) echo "Les paquets suivants ont été installés :" >> $log/update_$jour-$heure
+0) echo "Les paquets suivants ont été mis à jour ou installés :" >> $log/update_$jour-$heure
 
 echo "" >> $log/update_$jour-$heure
 
