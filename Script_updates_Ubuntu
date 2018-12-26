@@ -8,7 +8,6 @@
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
 log=/home/utilisateur/.updates
-liste_correctifs=$(apt -s full-upgrade | grep "Inst" | awk '{print $2}')
 
 if [ ! -d $log ];then
 
@@ -53,6 +52,8 @@ echo -e "-----------------------------------------------------------------------
 echo -e "\tEtape 2 : Liste des mises à jours disponibles"  >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
+
+liste_correctifs=$(apt -s full-upgrade | grep "Inst" | awk '{print $2}')
 
 for i in $liste_correctifs ;do
 
