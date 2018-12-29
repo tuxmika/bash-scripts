@@ -11,7 +11,7 @@
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
-log=/home/mickael/.updates
+log=/home/utilisateur/.updates
 destinataire=mail@mail.fr
 
 if [ ! -d $log ];then
