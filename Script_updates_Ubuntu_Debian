@@ -36,7 +36,7 @@ nombre=$(apt -s full-upgrade | grep "Inst" | awk '{print $2}' | wc -l )
 
 if [ $nombre -ne 0 ];then
 
-notify-send -i /usr/share/pixmaps/software-update-icon.png "$nombre paquets seront mis à jour"
+notify-send -i /usr/share/pixmaps/software-update-icon.png "$nombre mise(s) à jour disponible(s)"
 
 else
 
