@@ -30,9 +30,9 @@ echo -e "\tEtape 1 : Mise à jour de la liste des paquets disponibles" >> $log/u
 
 echo -e "-------------------------------------------------------------------------------------------------" >> $log/update_$jour-$heure
 
-apt update >> $log/update_$jour-$heure 
+apt-get update >> $log/update_$jour-$heure 
 
-nombre=$(apt -s full-upgrade | grep "Inst" | awk '{print $2}' | wc -l )
+nombre=$(apt-get -s full-upgrade | grep "Inst" | awk '{print $2}' | wc -l )
 
 if [ $nombre -ne 0 ];then
 
@@ -54,7 +54,7 @@ echo -e "\tEtape 2 : Liste des mises à jours disponibles"  >> $log/update_$jour
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-liste_correctifs=$(apt -s full-upgrade | grep "Inst" | awk '{print $2}')
+liste_correctifs=$(apt-get -s full-upgrade | grep "Inst" | awk '{print $2}')
 
 for i in $liste_correctifs ;do
 
@@ -76,7 +76,7 @@ echo -e "-----------------------------------------------------------------------
 
 > /var/log/dpkg.log
 
-apt full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" 2> $log/erreur.log
+apt-get full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" 2> $log/erreur.log
 
 nombre_ok=$(grep "status installed" /var/log/dpkg.log | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
 
@@ -102,7 +102,7 @@ echo -e "\tEtape 4 : Nettoyage" >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-apt autoclean && apt clean && apt autoremove -y >> $log/update_$jour-$heure
+apt-get clean && apt-get autoclean && apt-get autoremove -y >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
