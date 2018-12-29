@@ -1,5 +1,8 @@
 #!/bin/bash
 # Script mises à jour Ubuntu et Debian
+# Le script va lister le nombre et le nom des paquets qui seront mis à jour.
+# Il va ensuite les installer et pour terminer renvoyer un mail récapitulatif.
+# Une fois le traitement terminé ou si aucune mise à jour n'est disponible,un shutdown sera effectué. 
 # Icône notification : https://www.iconfinder.com/icons/118955/available_software_update_icon
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
@@ -8,7 +11,8 @@
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
-log=/home/utilisateur/.updates
+log=/home/mickael/.updates
+destinataire=mail@mail.fr
 
 if [ ! -d $log ];then
 
@@ -40,11 +44,11 @@ notify-send -i /usr/share/pixmaps/software-update-icon.png "$nombre mise(s) à j
 
 else
 
-notify-send -i /usr/share/pixmaps/software-update-icon.png "Aucune mise à jour disponible..."
+notify-send -i /usr/share/pixmaps/software-update-icon.png "Aucune mise à jour disponible..." "L'ordinateur va maintenant s'arrêter..."
 
 rm -rf $log/update_$jour-$heure
 
-sleep 5s && shutdown -h now
+sleep 10s && shutdown -h now
 
 fi
 
@@ -110,10 +114,10 @@ echo "Fin du traitement le $(date +%d-%B-%Y) à $(date +%H:%M:%S)" >> $log/updat
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" mail@mail.fr
+cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire
 
 export DEBIAN_FRONTEND=dialog
 
 find $log -type f -mtime +15 -exec rm -rf {} \;
 
-sleep 5s && shutdown -h now
+sleep 10s && shutdown -h now
