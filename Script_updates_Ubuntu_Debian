@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script mises à jour Ubuntu et Debian
 # Le script va lister le nombre et le nom des paquets qui seront mis à jour.
-# Il va ensuite les installer et pour terminer renvoyer un mail récapitulatif.
+# Il va ensuite les installer et pour terminer envoyer un mail récapitulatif.
 # Une fois le traitement terminé ou si aucune mise à jour n'est disponible,un shutdown sera effectué. 
 # Icône notification : https://www.iconfinder.com/icons/118955/available_software_update_icon
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
