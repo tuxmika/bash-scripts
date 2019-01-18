@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script montage/demontage dossiers chiffrés avec EncFS
+# Script montage/démontage dossiers chiffrés avec EncFS
 # Prérequis : Zenity ( https://packages.ubuntu.com/search?keywords=zenity )
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD
