@@ -1,7 +1,7 @@
 #!/bin/bash 
 # Script de sauvegarde FTP
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Pré-requis : lftp ( http://lftp.yar.ru )
 
 # Informations sur le serveur FTP 
