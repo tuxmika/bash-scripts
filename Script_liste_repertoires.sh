@@ -2,7 +2,7 @@
 #!/bin/bash 
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Script pour afficher les statistiques des dossiers ( liste, nombre, taille totale, taille par dossier...).
-# Auteur : Mickaël BONNARD 
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 log='/var/log/liste.log' 
