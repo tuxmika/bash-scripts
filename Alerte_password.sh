@@ -29,7 +29,7 @@ if [[ $difference_jours -ge 60 ]]
 
    then
 
-sujet="Changement mot de passe utilisatateur $user sur $HOSTNAME"
+sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
 
 corps=" Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNAME a ete effectue le $dernier_changement_date ( $difference_jours jours )\n
  N'oubliez pas que la securite passe avant tout par un bon mot de passe"
