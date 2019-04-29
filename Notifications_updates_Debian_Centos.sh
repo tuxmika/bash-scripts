@@ -1,7 +1,7 @@
 # !/bin/bash
 # Script de notification de mises à jour Debian / Centos
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 jour=$(date +'%d %B %Y')
