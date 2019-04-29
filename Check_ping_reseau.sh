@@ -2,7 +2,7 @@
 # Tester la disponibilité de vos hôtes avec un script
 # le script va pinger votre réseau afin de déterminer les hôtes disponibles dans celui-ci.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 compteur=3 
