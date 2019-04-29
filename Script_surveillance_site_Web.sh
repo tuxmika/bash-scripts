@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script surveillance site Web
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 sites="http://www.xxxx.fr http://www.yyyyy.fr" 
 mail=admin@domain.com
