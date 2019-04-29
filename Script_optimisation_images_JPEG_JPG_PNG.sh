@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script qui va permettre d'optimiser vos images ( .png, .jpeg et .jpg ).
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 repertoire='/home/mickael/photos'
