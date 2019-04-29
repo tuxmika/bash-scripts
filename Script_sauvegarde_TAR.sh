@@ -4,7 +4,7 @@
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
-snapshot="emplacement du snapshot"
+snapshot="/home/utilisateur/sauvegardes"
 date=`date +%d-%B-%Y`
 jour=`date +%A`
 numero=`date +%U`
@@ -49,6 +49,7 @@ echo "Création du répertoire de la semaine $numero OK" >> $log
 cd $source
 
 # On compresse au format tar.gz le dossier à sauvegarder.
+# --listed-incremental=$snapshot : fichier snapshot qui servira à déterminer si la sauvegarde sera complète ou incrémentale
 
 tar -zcf $local/sauvegarde.$date.tar.gz --listed-incremental=$snapshot $dossier
 
