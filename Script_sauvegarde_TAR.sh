@@ -4,7 +4,7 @@
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
-snapshot="/home/utilisateur/sauvegardes"
+snapshot="/home/utilisateur/sauvegardes/snapshot.log"
 date=`date +%d-%B-%Y`
 jour=`date +%A`
 numero=`date +%U`
