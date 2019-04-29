@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script de sauvegarde avec tar/gzip et chiffrement GPG.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : http://arobaseinformatique.eklablog.com/chiffrement-dechiffrement-asymetrique-avec-gnupg-a114562000
 # Prérequis : http://arobaseinformatique.eklablog.com/creation-d-un-serveur-ssh-avec-authentification-par-cles-a3736670
 
