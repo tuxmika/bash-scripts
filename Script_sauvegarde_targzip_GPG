@@ -1,5 +1,5 @@
 #!/bin/bash
-# http://arobaseinformatique.eklablog.com/script-de-sauvegarde-complete-incrementale-via-tar-a113266180
+# Script de sauvegarde avec tar/gzip et chiffrement GPG
 # Prérequis : http://arobaseinformatique.eklablog.com/chiffrement-dechiffrement-asymetrique-avec-gnupg-a114562000
 
 date=`date +%d-%B-%Y`
