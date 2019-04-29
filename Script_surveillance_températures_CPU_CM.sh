@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script surveillance températures CPU et carte mère
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Pré-requis : lm-sensors
 
 # Variables
