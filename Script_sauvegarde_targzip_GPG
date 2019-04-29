@@ -13,6 +13,7 @@ distant="/home/utilisateur/sauvegardes/sauvegarde_semaine_$numero/"
 log="/home/utilisateur/Bureau/logs_sauvegardes"
 hostssh="192.168.0.23"
 userssh="utilisateur"
+identifiant="identifiant clé GPG"
 
 nom()
 {
@@ -53,7 +54,7 @@ cd $source
 # -r : spécifie l'identifiant de la clé avec lequel le fichier doit être chiffré ( 8 caractères )
 #-o [dossier sorti] : définit le nom du fichier à la sortie.
 
-tar czf - $dossier | gpg -e -r "identifiant-clé" -o $local/sauvegarde_semaine_$numero.tar.gz.gpg
+tar czf - $dossier | gpg -e -r $identifiant -o $local/sauvegarde_semaine_$numero.tar.gz.gpg
 
 # Statut de la compression
 
