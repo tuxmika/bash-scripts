@@ -15,7 +15,7 @@ retention=`date +%U --date='12 day ago'`
 distant="chemin de la sauvegarde distante"
 log="emplacement des logs"
 ip="adresse ip"
-user="user"
+user="utilisateur"
 
 # Si le répertoire local n'existe pas, il sera crée.
 
@@ -56,7 +56,7 @@ echo "Compression locale terminée" >> $log
 
 # On envoie le dossier compressé sur le serveur
 
-scp $local/sauvegarde.$date.tar.gz mickael@192.168.1.19:$distant/sauvegarde_semaine_$numero
+scp $local/sauvegarde.$date.tar.gz utilisateur@ip:$distant/sauvegarde_semaine_$numero
 
 echo "Envoi de la sauvegarde locale vers le serveur terminé" >> $log
 
