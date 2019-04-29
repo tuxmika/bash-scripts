@@ -1,7 +1,5 @@
 #!/bin/bash
-# Tester la disponibilité de vos hôtes avec un script.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# http://arobaseinformatique.eklablog.com/script-de-sauvegarde-complete-incrementale-via-tar-a113266180
 date=`date +%d-%B-%Y`
 #jour=`date +%A`
 numero=`date +%U`
@@ -53,7 +51,7 @@ cd $source
 # -r : spécifie l'identifiant de la clé avec lequel le fichier doit être chiffré ( 8 caractères )
 #-o [dossier sorti] : définit le nom du fichier à la sortie.
 
-tar czf - $dossier | gpg -e -r 093F5B89 -o $local/sauvegarde_semaine_$numero.tar.gz.gpg
+tar czf - $dossier | gpg -e -r "identifiant-clé" -o $local/sauvegarde_semaine_$numero.tar.gz.gpg
 
 # Statut de la compression
 
@@ -102,7 +100,121 @@ case $status in
 25) echo La limite --max-delete a été atteinte >> $log/sauvegarde_semaine_$numero.log;;
 30) echo Dépassement du temps d'attente maximal lors d'envoi/réception de données >> $log/sauvegarde_semaine_$numero.log;;
 35) echo Temps d’attente dépassé en attendant une connection >> $log/sauvegarde_semaine_$numero.log;;
+255) echo Erreur inexpliquée >> $log/sauvegarde_semaine_$numero.log;;# -e : pour spécifier l’utilisation de ssh
+75
+# -- stats : donne des informations sur le transfert (nombre de fichiers...).
+76
+# --protect -args : Si vous avez besoin de transférer un nom de fichier qui contient des espaces , vous pouvez le spécifier avec cette option.
+77
+​
+78
+status=$?
+79
+echo "" >> $log/sauvegarde_semaine_$numero.log
+80
+​
+81
+# Codes de retour rsync
+82
+​
+83
+case $status in
+84
+0) echo Succès >> $log/sauvegarde_semaine_$numero.log;;
+85
+1) echo Erreur de syntaxe ou d'utilisation >> $log/sauvegarde_semaine_$numero.log;;
+86
+2) echo Incompatibilité de protocole >> $log/sauvegarde_semaine_$numero.log;;
+87
+3) echo Erreurs lors de la sélection des fichiers et des répertoires d'entrée/sortie >> $log/sauvegarde_semaine_$numero.log;;
+88
+4) echo Action non supportée : une tentative de manipulation de fichiers 64-bits sur une plate-forme qui ne les supporte pas \
+89
+ ; ou une option qui est supportée par le client mais pas par le serveur. >> $log/sauvegarde_semaine_$numero.log;;
+90
+5) echo Erreur lors du démarrage du protocole client-serveur >> $log/sauvegarde_semaine_$numero.log;;
+91
+6) echo Démon incapable d'écrire dans le fichier de log >> $log/sauvegarde_semaine_$numero.log;;
+92
+10) echo Erreur dans la socket E/S >> $log/sauvegarde_semaine_$numero.log;;
+93
+11) echo Erreur d'E/S fichier >> $log/sauvegarde_semaine_$numero.log;;
+94
+12) echo Erreur dans le flux de donnée du protocole rsync >> $log/sauvegarde_semaine_$numero.log;;
+95
+13) echo Erreur avec les diagnostics du programme >> $log/sauvegarde_semaine_$numero.log;;
+96
+14) echo Erreur dans le code IPC>> $log/sauvegarde_semaine_$numero.log;;
+97
+20) echo SIGUSR1 ou SIGINT reçu >> $log/sauvegarde_semaine_$numero.log;;
+98
+21) echo "Une erreur retournée par waitpid()" >> $log/sauvegarde_semaine_$numero.log;;
+99
+22) echo  Erreur lors de l'allocation des tampons de mémoire principaux >> $log/sauvegarde_semaine_$numero.log;;
+100
+23) echo Transfert partiel du à une erreur >> $log/sauvegarde_semaine_$numero.log;;
+101
+24) echo Transfert partiel du à la disparition d'un fichier source >> $log/sauvegarde_semaine_$numero.log;;
+102
+25) echo La limite --max-delete a été atteinte >> $log/sauvegarde_semaine_$numero.log;;
+103
+30) echo Dépassement du temps d'attente maximal lors d'envoi/réception de données >> $log/sauvegarde_semaine_$numero.log;;
+104
+35) echo Temps d’attente dépassé en attendant une connection >> $log/sauvegarde_semaine_$numero.log;;
+105
 255) echo Erreur inexpliquée >> $log/sauvegarde_semaine_$numero.log;;
+106
+esac
+107
+​
+108
+echo "" >> $log/sauvegarde_semaine_$numero.log
+109
+​
+110
+# On supprime la sauvegarde locale et on vérifie sa suppression.
+111
+​
+112
+rm -rf $local
+113
+​
+114
+# Statut de la suppression
+115
+status=$?
+116
+​
+117
+case $status in
+118
+0) echo "Suppression de la sauvegarde locale terminée à `date +%T`" >> $log/sauvegarde_semaine_$numero.log ;;
+119
+1) echo "Une erreur s'est produite lors de la suppression" >> $log/sauvegarde_semaine_$numero.log && exit;;
+120
+esac
+121
+​
+122
+# On supprime les anciennes sauvegardes distantes suivant la rétention.
+123
+​
+124
+ssh $userssh@$hostssh rm -rf "/home/utilisateur/sauvegardes/sauvegarde_semaine_$retention"
+125
+​
+126
+​
+127
+echo "" >> $log/sauvegarde_semaine_$numero.log
+128
+echo "-------------------------------------------------------------" >> $log/sauvegarde_semaine_$numero.log
+129
+echo "Fin de la sauvegarde le $date à `date +%T`" >> $log/sauvegarde_semaine_$numero.log
+130
+echo "-------------------------------------------------------------" >> $log/sauvegarde_semaine_$numero.log
+131
+
 esac
 
 echo "" >> $log/sauvegarde_semaine_$numero.log
@@ -121,7 +233,7 @@ esac
 
 # On supprime les anciennes sauvegardes distantes suivant la rétention.
 
-ssh $userssh@$hostssh rm -rf "/home/mickael/sauvegardes/sauvegarde_semaine_$retention"
+ssh $userssh@$hostssh rm -rf "/home/utilisateur/sauvegardes/sauvegarde_semaine_$retention"
 
 
 echo "" >> $log/sauvegarde_semaine_$numero.log
