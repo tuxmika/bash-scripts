@@ -1,7 +1,7 @@
 #!/bin/bash
 # Tester la disponibilité de vos hôtes avec un script.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 hotes="xx.xx.xx.xx yy.yy.yy.yy zz.zz.zz.zz"
