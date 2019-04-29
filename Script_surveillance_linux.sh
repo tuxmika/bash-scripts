@@ -1,7 +1,7 @@
 #!/bin/bash 
 # Script de surveillance linux
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : traceroute, lm-sensors, htop, bmon, ncdu et speedtest ( https://github.com/sivel/speedtest-cli )
 
 rougefonce='\e[0;31m' 
