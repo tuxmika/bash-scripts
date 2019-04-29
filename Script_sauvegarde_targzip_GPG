@@ -10,7 +10,7 @@ retention=$(date +%U --date='5 week ago')
 distant="/home/utilisateur/sauvegardes/sauvegarde_semaine_$numero/"
 log="/home/utilisateur/Bureau/logs_sauvegardes"
 hostssh="192.168.0.23"
-userssh="mickael"
+userssh="utilisateur"
 
 nom()
 {
