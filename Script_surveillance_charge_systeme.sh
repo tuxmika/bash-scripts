@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script de surveillance de la charge système
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 mail="mail@admin.com"
