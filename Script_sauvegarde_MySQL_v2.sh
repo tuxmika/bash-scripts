@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script de sauvegarde des bases de données MySQL.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mailx et postfix sur Centos et bsd-mailx et postfix sur Debian
 # Créer un utilisateur MySQL avec des privilèges minimaux dédié aux sauvegardes.
 # Création de l’utilisateur avec son mot de passe.
