@@ -5,7 +5,7 @@
 # Une fois le traitement terminé ou si aucune mise à jour n'est disponible,un shutdown sera effectué. 
 # Icône notification : https://www.iconfinder.com/icons/118955/available_software_update_icon
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # mettre dans /etc/sudoers : nom_utilisateur ALL=NOPASSWD: /usr/bin/updates
 
