@@ -1,6 +1,6 @@
 #!/bin/bash
 # http://arobaseinformatique.eklablog.com/script-de-sauvegarde-complete-incrementale-via-tar-a113266180
-# prérequis : http://arobaseinformatique.eklablog.com/chiffrement-dechiffrement-asymetrique-avec-gnupg-a114562000
+# Prérequis : http://arobaseinformatique.eklablog.com/chiffrement-dechiffrement-asymetrique-avec-gnupg-a114562000
 
 date=`date +%d-%B-%Y`
 #jour=`date +%A`
