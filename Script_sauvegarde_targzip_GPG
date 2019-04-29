@@ -3,14 +3,14 @@
 date=`date +%d-%B-%Y`
 #jour=`date +%A`
 numero=`date +%U`
-source="/home/mickael"
+source="/home/utilisateur"
 dossier="Documents"
-local="/home/mickael/temp_backup"
+local="/home/utilisateur/temp_backup"
 retention=$(date +%U --date='5 week ago')
-distant="/home/mickael/sauvegardes/sauvegarde_semaine_$numero/"
+distant="/home/utilisateur/sauvegardes/sauvegarde_semaine_$numero/"
 log="/home/mickael/Bureau/logs_sauvegardes"
 hostssh="192.168.0.23"
-userssh="mickael"
+userssh="utilisateur"
 identifiant="identifiant_clé_GPG"
 
 nom()
@@ -52,7 +52,7 @@ cd $source
 # -r : spécifie l'identifiant de la clé avec lequel le fichier doit être chiffré ( 8 caractères )
 #-o [dossier sorti] : définit le nom du fichier à la sortie.
 
-tar czf - $dossier | gpg -e -r 093F5B89 -o $local/sauvegarde_semaine_$numero.tar.gz.gpg
+tar czf - $dossier | gpg -e -r $identifiant -o $local/sauvegarde_semaine_$numero.tar.gz.gpg
 
 # Statut de la compression
 
@@ -120,7 +120,7 @@ esac
 
 # On supprime les anciennes sauvegardes distantes suivant la rétention.
 
-ssh $userssh@$hostssh rm -rf "/home/mickael/sauvegardes/sauvegarde_semaine_$retention"
+ssh $userssh@$hostssh rm -rf "/home/utilisateur/sauvegardes/sauvegarde_semaine_$retention"
 
 
 echo "" >> $log/sauvegarde_semaine_$numero.log
