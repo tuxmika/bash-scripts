@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script sauvegarde complète/incrémentale via tar
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 snapshot="emplacement du snapshot"
