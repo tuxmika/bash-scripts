@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script surveillance services
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 liste="service1 service2 service3"
 for service in $liste
