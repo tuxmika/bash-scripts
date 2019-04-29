@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script notification redémarrage après un update de kernel sur Centos et Debian.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
-# Auteur : Mickaël BONNARD
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
 sujet="Redémarrage nécessaire sur $HOSTNAME"
