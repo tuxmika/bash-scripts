@@ -45,7 +45,7 @@ echo -e "-----------------------------------------------------------------------
 echo -e "\t$jour : $nombre_centos mises à jour disponibles sur $HOSTNAME ($ip)\n"
 echo -e "------------------------------------------------------------------------------------------------------\n"
 for i in $liste_centos ;do
-actuelle=$(yum list installed $i | awk {'print $1,$2'} | tail -n+3)
+actuelle=$(yum list installed $i | awk {'print $1,$2'} | tail -n+2)
 maj=$(yum -q check-update | tail -n+2 | awk {'print $1,$2'} | grep -w $i)
 echo -e "$i :\nInstallé : $actuelle\nCandidat : $maj\n"
 echo -e "------------------------------------------------------------------------------------------------------\n"
