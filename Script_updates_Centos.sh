@@ -32,7 +32,7 @@ echo -e "\tEtape 1 : Liste des mises à jours disponibles" >> $log/update_$jour-
 
 echo -e "-------------------------------------------------------------------------------------------------" >> $log/update_$jour-$heure
 
-echo "" >> $log/update_$jour-$heure
+#echo "" >> $log/update_$jour-$heure
 
 yum check-update > /dev/null
 
