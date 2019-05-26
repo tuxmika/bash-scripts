@@ -9,6 +9,8 @@
 log=/home/mickael/.updates
 destinataire=breizhmika@outlook.fr
 sujet="Mises à jour disponibles sur $HOSTNAME"
+jour=`date +%d-%m-%Y`
+heure=`date +%H:%M:%S`
 
 if [ ! -d $log ];then
 
