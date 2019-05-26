@@ -32,8 +32,6 @@ echo -e "\tEtape 1 : Liste des mises à jours disponibles" >> $log/update_$jour-
 
 echo -e "-------------------------------------------------------------------------------------------------" >> $log/update_$jour-$heure
 
-#echo "" >> $log/update_$jour-$heure
-
 yum check-update > /dev/null
 
 liste_centos=$(yum -q check-update | tail -n+2 | awk {'print $1'})
@@ -48,9 +46,10 @@ fi
 for i in $liste_centos ;do
 
 actuelle=$(yum list installed $i | awk {'print $1,$2'} | tail -n+2) 
+
 maj=$(yum -q check-update | tail -n+2 | awk {'print $1,$2'} | grep -w $i) 
 
-   echo "" >> $log/update_$jour-$heure 
+echo "" >> $log/update_$jour-$heure 
    
 echo -e "$i :\nInstallé : $actuelle\nCandidat : $maj\n" >> $log/update_$jour-$heure
 
@@ -101,6 +100,7 @@ kernel_reboot()
 {
 
 nouveau=$(ls -t /boot/vmlinuz-* | sed "s/\/boot\/vmlinuz-//g" | head -n1)
+
 actuel=$(uname -r)
 
 if [ "$nouveau" != "$actuel" ];then
