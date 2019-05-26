@@ -39,7 +39,7 @@ nombre_centos=$(yum -q check-update | tail -n+2 | wc -l)
 
 if [ $nombre_centos -eq 0 ];then
 
-exit
+rm -rf $log/update_$jour-$heure && exit
 
 fi
 
