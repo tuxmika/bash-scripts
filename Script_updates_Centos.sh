@@ -48,8 +48,6 @@ for i in $liste_centos ;do
 actuelle=$(yum list installed $i | awk {'print $1,$2'} | tail -n+2) 
 maj=$(yum -q check-update | tail -n+2 | awk {'print $1,$2'} | grep -w $i) 
 
-   echo -e "-------------------------------------------------------------------------------------------------" >> $log/update_$jour-$heure
-
 echo -e "$i :\nInstallé : $actuelle\nCandidat : $maj\n" >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------" >> $log/update_$jour-$heure
