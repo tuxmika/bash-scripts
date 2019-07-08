@@ -7,7 +7,7 @@
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 log=/home/mickael/.updates
-destinataire=breizhmika@outlook.fr
+destinataire=mail@mail.fr
 sujet="Mises à jour disponibles sur $HOSTNAME"
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
