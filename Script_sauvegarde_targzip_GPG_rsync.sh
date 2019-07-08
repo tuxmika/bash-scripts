@@ -14,7 +14,7 @@ local="/home/utilisateur/temp_backup"
 retention=$(date +%U --date='5 week ago')
 distant="/home/utilisateur/sauvegardes/sauvegarde_semaine_$numero/"
 log="/home/mickael/Bureau/logs_sauvegardes"
-hostssh="192.168.0.23"
+hostssh="xx.xx.xx.xx"
 userssh="utilisateur"
 identifiant="identifiant_clé_GPG"
 
