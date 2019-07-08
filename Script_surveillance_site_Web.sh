@@ -1,5 +1,8 @@
 #!/bin/bash
 # Script surveillance site Web
+# Celui-ci qui va analyser le code de statut HTTP de vos sites web ( ok, moved permanently, not found etc...) et vous envoyer un mail si le statut n'est pas ok ( code 200 ).
+
+Le script va utiliser la commande curl ( Client URL Request Library ) pour effectuer des requêtes HTTP.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
