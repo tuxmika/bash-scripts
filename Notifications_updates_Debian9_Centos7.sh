@@ -15,7 +15,6 @@ destinataire="mail@admin.fr"
 if [ -f /etc/debian_version ]; then
 liste_debian=$(apt-get -s dist-upgrade | grep "Inst" | awk '{print $2}')
 nombre_debian=$(apt-get -s dist-upgrade | grep "Inst" | awk '{print $2}'| wc -l)
-expediteur="mail@admin.fr"
 apt-get -qq update && apt-get -s dist-upgrade > /dev/null
 maj_debian(){
 echo -e "-------------------------------------------------------------------------------------------------\n"
@@ -30,7 +29,7 @@ done
 echo -e "-------------------------------------------------------------------------------------------------\n"
 }
 if [ $nombre_debian -ne 0 ]; then
-maj_debian | mail -s "$sujet" -r "NOTIFICATIONS_UPDATES<$expediteur>" $destinataire
+maj_debian | mail -s "$sujet" $destinataire
 fi
 
 # Si le fichier /etc/debian_version n’est pas présent, alors on vérifie les mises à jour pour Centos
@@ -39,7 +38,6 @@ else
 yum check-update > /dev/null
 liste_centos=$(yum -q check-update | tail -n+2 | awk {'print $1'})
 nombre_centos=$(yum -q check-update | tail -n+2 | wc -l)
-expediteur="mail@admin.fr"
 maj_centos(){
 echo -e "------------------------------------------------------------------------------------------------------\n"
 echo -e "\t$jour : $nombre_centos mises à jour disponibles sur $HOSTNAME ($ip)\n"
@@ -52,7 +50,7 @@ echo -e "-----------------------------------------------------------------------
 done
 }
 if [ $nombre_centos -ne 0 ]; then
-maj_centos | mail -s "$sujet" -r "NOTIFICATIONS_UPDATES<$expediteur>" "$destinataire"
+maj_centos | mail -s "$sujet" "$destinataire"
 else
 exit
 fi
