@@ -1,3 +1,5 @@
+
+
 # !/bin/bash
 # Script de notification de mises à jour Debian 10 / Centos 7
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
@@ -7,7 +9,7 @@
 jour=$(date +'%d %B %Y')
 ip=$(hostname -I)
 sujet="Mises à jour disponibles sur $HOSTNAME"
-destinataire="mail@mail.lan"
+destinataire="mail@admin.lan"
 
 # On teste la présence du fichier /etc/debian_version
 # Si celui-ci est présent, alors on vérifie les mises à jour pour Debian
@@ -55,3 +57,4 @@ else
 exit
 fi
 fi
+
