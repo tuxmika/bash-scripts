@@ -1,5 +1,3 @@
-
-
 # !/bin/bash
 # Script de notification de mises à jour Debian 10 / Centos 7
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
