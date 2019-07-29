@@ -11,7 +11,7 @@ echo -n "Entrer un nom : "
 
 read nom
 
-# Le 1er numéro séquentiel sera le numéro 1
+# Le 1er numéro séquentiel sera le numéro 1.
 
 compteur=1
 
