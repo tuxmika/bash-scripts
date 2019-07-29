@@ -11,13 +11,17 @@ echo -n "Entrer un nom : "
 
 read nom
 
+# Le 1er numéro séquentiel sera le numéro 1
+
 compteur=1
 
 # On se place dans le répertoire donné en paramètre.
 
 cd $1
 
-# On renomme les images.
+# Les images sont renommées avec le nom entré en paramètre.
+# L'incrémentation séquentielle se fait entre parenthèses.
+# On préserve l'extension du fichier.
 
 for images in *
 
