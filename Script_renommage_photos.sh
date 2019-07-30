@@ -1,5 +1,6 @@
 #!/bin/bash
 # Le script va simplement renommer les photos avec le nom donné en paramètre.
+# Celui-ci fonctionne avec des fichiers autres que des photos.
 # Les photos auront des numéros séquentiels qui seront entre parenthèses.
 # Le renommage des noms de fichiers comprenant des espaces fonctionne avec le script.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
