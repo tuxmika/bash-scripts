@@ -11,7 +11,7 @@ IFS='
 cd $1
 
 # Le classement se fait par ordre croissant.
-# Pour les dossiers utiliser "ls -d */".
+# Pour n'afficher que les dossiers, utiliser la commande "ls -d */".
 
 for fichiers in $(ls -1rt)
 
