@@ -1,0 +1,44 @@
+#!/bin/bash
+# Tester la disponibilité de vos hôtes avec un script.
+# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
+
+#!/bin/bash
+
+IFS='
+'
+
+# On se place dans le répertoire donné en paramètre.
+
+cd $1
+
+# Le classement se fait par ordre croissant.
+# Pour les dossiers utiliser "ls -d */".
+
+for fichiers in $(ls -1rt)
+
+do
+
+# On recherche l'inode du fichier à l'aide de la commande stat ( les 2 commandes fonctionnent ).
+
+inode=$(stat -c %i "${fichiers}")
+
+#inode=$(ls -i "${fichiers}" | awk '{print $1}')
+
+# On recherche sur quel sytème de fichiers est située le fichier / dossier ( les 2 commandes fonctionnent ).
+
+#systeme_fichier=$(df "${fichiers}" | tail -1 | awk '{print $1}')
+
+systeme_fichier=$(df "${fichiers}" | awk 'NR==2 {print $1}')
+
+# Avec l'inode et la partition, on extrait la date de création du fichier.
+
+date_creation=$(debugfs -R 'stat <'"${inode}"'>' "${systeme_fichier}" 2>/dev/null |  grep 'crtime' | awk -F '--' {'print $2'} | awk {'print $1" "$3" "$2" "$5" "$4'})
+
+# On récupère le nom du fichier sans le chemin complet.
+
+noms_fichiers=`basename "$fichiers"`
+
+echo "${noms_fichiers}" : "${date_creation}"
+
+done
