@@ -5,7 +5,6 @@
 
 IFS='
 '
-
 # On se place dans le répertoire donné en paramètre.
 
 cd $1
