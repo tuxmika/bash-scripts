@@ -24,7 +24,7 @@ inode=$(stat -c %i "${fichiers}")
 
 #inode=$(ls -i "${fichiers}" | awk '{print $1}')
 
-# On recherche sur quel sytème de fichiers est située le fichier / dossier ( les 2 commandes fonctionnent ).
+# On recherche sur quelle partition est située le fichier / dossier ( les 2 commandes fonctionnent ).
 
 #systeme_fichier=$(df "${fichiers}" | tail -1 | awk '{print $1}')
 
@@ -37,6 +37,8 @@ date_creation=$(debugfs -R 'stat <'"${inode}"'>' "${partition}" 2>/dev/null |  g
 # On récupère le nom du fichier sans le chemin complet.
 
 noms_fichiers=`basename "$fichiers"`
+
+# On affiche le nom du fichier ou dossier avec sa date de création.
 
 echo "${noms_fichiers}" : "${date_creation}"
 
