@@ -1,5 +1,5 @@
 #!/bin/bash
-# Obtenir la date de création de dossiers ou fichiers sur un système de fichiers EXT4.
+# Obtenir la date de création de fichiers ou dossiers sur un système de fichiers EXT4.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
