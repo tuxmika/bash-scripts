@@ -27,11 +27,11 @@ inode=$(stat -c %i "${fichiers}")
 
 #systeme_fichier=$(df "${fichiers}" | tail -1 | awk '{print $1}')
 
-systeme_fichier=$(df "${fichiers}" | awk 'NR==2 {print $1}')
+partition=$(df "${fichiers}" | awk 'NR==2 {print $1}')
 
 # Avec l'inode et la partition, on extrait la date de création du fichier.
 
-date_creation=$(debugfs -R 'stat <'"${inode}"'>' "${systeme_fichier}" 2>/dev/null |  grep 'crtime' | awk -F '--' {'print $2'} | awk {'print $1" "$3" "$2" "$5" "$4'})
+date_creation=$(debugfs -R 'stat <'"${inode}"'>' "${partition}" 2>/dev/null |  grep 'crtime' | awk -F '--' {'print $2'} | awk {'print $1" "$3" "$2" "$5" "$4'})
 
 # On récupère le nom du fichier sans le chemin complet.
 
