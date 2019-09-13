@@ -83,11 +83,11 @@ echo -e "\tEtape 3 : Installation des mises à jour" >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-> /var/log/dpkg.log
+> $dpkg
 
 apt-get full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" 2> $log/erreur.log
 
-nombre_ok=$(grep "status installed" /var/log/dpkg.log | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
+nombre_ok=$(grep "status installed" $dpkg | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
 
 case $? in
 
@@ -95,7 +95,7 @@ case $? in
 
 echo "" >> $log/update_$jour-$heure
 
-grep "status installed" /var/log/dpkg.log | awk {'print $5" "$6" "$7'} >> $log/update_$jour-$heure
+grep "status installed" $dpkg | awk {'print $5" "$6" "$7'} >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
