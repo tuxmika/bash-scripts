@@ -11,6 +11,7 @@
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
+dpkg=/var/log/dpkg.log
 log=/home/utilisateur/.updates
 erreur=/home/utilisateur/.updates/erreur.log
 destinataire=mail@mail.fr
