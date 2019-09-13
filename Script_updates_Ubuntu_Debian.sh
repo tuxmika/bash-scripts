@@ -21,6 +21,9 @@ mkdir $log
 
 fi
 
+# On définit le type d'interface qu'utilisera l'installateur.
+# https://manpages.debian.org/buster/debconf-doc/debconf.7.fr.html
+
 export DEBIAN_FRONTEND=noninteractive
 
 notify-send -i /usr/share/pixmaps/software-update-icon.png -t 5000 "Vérification des mises à jour..." "Veuillez patienter quelques instants..."
