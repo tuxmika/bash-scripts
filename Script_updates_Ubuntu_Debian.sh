@@ -12,6 +12,7 @@
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
 log=/home/utilisateur/.updates
+erreur=/home/utilisateur/.updates/erreur.log
 destinataire=mail@mail.fr
 
 if [ ! -d $log ];then
@@ -96,7 +97,9 @@ echo -e "-----------------------------------------------------------------------
 
 echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure;;
 
-1) cat $log/erreur.log >> $log/update_$jour-$heure;;
+*) echo "Des erreurs ont été rencontrées :" >> $log/update_$jour-$heure
+
+cat $erreur >> $log/update_$jour-$heure;;
 
 esac
 
