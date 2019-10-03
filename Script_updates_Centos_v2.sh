@@ -5,6 +5,7 @@
 # Si un reboot est nécessaire suite à un upgrade de kernel , une notification sera inscrite en fin de mail.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
+# Prérequis : mutt
 
 log=/home/mickael/.updates
 destinataire=mail@mail.fr
