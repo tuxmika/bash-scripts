@@ -28,7 +28,7 @@ done
 
 if [ $nombre -ne 0 ];then
 
-maj | mail -s "$sujet" -r "$expediteur" "$destinataire"
+maj | mutt -s "$sujet" $destinataire < $log/update_$jour-$heure
 
 else
 
