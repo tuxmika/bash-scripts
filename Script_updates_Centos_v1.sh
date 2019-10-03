@@ -4,6 +4,7 @@
 # Il va ensuite les installer et pour terminer envoyer un mail récapitulatif.
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
+# Prérequis : mutt
 
 liste=$(yum -q check-update | tail -n+2 | awk {'print $1'})
 nombre=$(yum -q check-update | tail -n+2 | wc -l)
