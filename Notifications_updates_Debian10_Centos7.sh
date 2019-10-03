@@ -2,6 +2,7 @@
 # Script de notification de mises à jour Debian 10 / Centos 7
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
+# Prérequis : mutt
 
 # Variables
 jour=$(date +'%d %B %Y')
@@ -29,7 +30,7 @@ done
 echo -e "-------------------------------------------------------------------------------------------------\n"
 }
 if [ $nombre_debian -ne 0 ]; then
-maj_debian | mail -s "$sujet" $destinataire
+maj_debian | mutt -s "$sujet" $destinataire
 fi
 
 # Si le fichier /etc/debian_version n’est pas présent, alors on vérifie les mises à jour pour Centos
@@ -50,7 +51,7 @@ echo -e "-----------------------------------------------------------------------
 done
 }
 if [ $nombre_centos -ne 0 ]; then
-maj_centos | mail -s "$sujet" "$destinataire"
+maj_centos | mutt -s "$sujet" "$destinataire"
 else
 exit
 fi
