@@ -10,7 +10,6 @@ nombre=$(yum -q check-update | tail -n+2 | wc -l)
 jour=$(date +'%d %B %Y')
 sujet="Mises à jour disponibles sur $HOSTNAME"
 destinataire="mail@admin.com"
-expediteur="notifications_updates@admin.com"
 
 yum check-update > /dev/null
 
