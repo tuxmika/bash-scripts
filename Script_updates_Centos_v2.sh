@@ -117,7 +117,7 @@ maj_centos
 
 kernel_reboot
 
-cat $log/update_$jour-$heure | mail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire
+mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
 
 
 
