@@ -1,5 +1,5 @@
 # !/bin/bash
-# Script de notification de mises à jour Debian 9 / Centos 7
+# Script de notification de mises à jour Debian 9 / Centos 
 # Licence MIT ( http://choosealicense.com/licenses/mit/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mutt
