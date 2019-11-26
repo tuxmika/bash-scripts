@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script mises à jour Centos 7
+# Script mises à jour Centos 
 # Le script va lister le nombre et le nom des paquets qui seront mis à jour.
 # Il va ensuite les installer et pour terminer envoyer un mail récapitulatif.
 # Si un reboot est nécessaire suite à un upgrade de kernel , une notification sera inscrite en fin de mail.
