@@ -13,7 +13,7 @@ echo -e "Voici les dates de création des fichiers et dossiers présents dans $1
 
 # Le classement se fait par ordre croissant.
 # Pour n'afficher que les dossiers, utiliser la commande "for fichiers in $(ls -d */)".
-# Pour n'afficher que les fichiers, utiliser la commande "for fichiers in $(find -type f)".
+# Pour n'afficher que les fichiers, utiliser la commande "for fichiers in $(find -type f | xargs ls -1rt)".
 
 for fichiers in $(ls -1rt)
 
