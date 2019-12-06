@@ -107,11 +107,19 @@ echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $l
 
 else
 
-# Si le fichier d'erreurs n'est pas vide, on inscrit son contenu dans le mail.
-
 echo "Des erreurs ont été rencontrées :" >> $log/update_$jour-$heure
 
 cat $erreur >> $log/update_$jour-$heure
+
+echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
+
+echo "Fin du traitement le $(date +%d-%B-%Y) à $(date +%H:%M:%S)" >> $log/update_$jour-$heure
+
+echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
+
+mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
+
+sleep 20s && shutdown -h now
 
 fi
 
