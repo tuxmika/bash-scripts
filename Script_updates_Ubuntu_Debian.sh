@@ -133,6 +133,8 @@ mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $
 
 export DEBIAN_FRONTEND=dialog
 
+# On purge les logs qui ont plus de 15 jours.
+
 find $log -type f -mtime +15 -exec rm -rf {} \;
 
 sleep 10s && shutdown -h now
