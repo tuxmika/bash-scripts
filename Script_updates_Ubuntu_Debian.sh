@@ -16,6 +16,8 @@ log=/home/utilisateur/.updates
 erreur=/home/utilisateur/.updates/erreur.log
 destinataire=mail@mail.fr
 
+> $erreur
+
 if [ ! -d $log ];then
 
 mkdir $log
@@ -84,7 +86,6 @@ echo -e "\tEtape 3 : Installation des mises à jour" >> $log/update_$jour-$heure
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
 > $dpkg
-> $erreur
 
 apt-get full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" 2> $log/erreur.log
 
