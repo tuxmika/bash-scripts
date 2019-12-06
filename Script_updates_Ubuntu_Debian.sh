@@ -89,9 +89,13 @@ apt-get full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::=
 
 nombre_ok=$(grep "status installed" $dpkg | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
 
-case $? in
+# Si le fichier d'erreur est vide.
 
-0) echo "Les paquets suivants ont été mis à jour ou installés :" >> $log/update_$jour-$heure
+if [ ! -s $erreur ]
+
+then
+
+echo "Les paquets suivants ont été mis à jour ou installés :" >> $log/update_$jour-$heure
 
 echo "" >> $log/update_$jour-$heure
 
@@ -99,13 +103,17 @@ grep "status installed" $dpkg | awk {'print $5" "$6" "$7'} >> $log/update_$jour-
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure;;
+echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure
 
-*) echo "Des erreurs ont été rencontrées :" >> $log/update_$jour-$heure
+else
 
-cat $erreur >> $log/update_$jour-$heure;;
+# Si le fichier d'erreurs n'est pas vide, on inscrit son contenu dans le mail.
 
-esac
+echo "Des erreurs ont été rencontrées :" >> $log/update_$jour-$heure
+
+cat $erreur >> $log/update_$jour-$heure
+
+fi
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
