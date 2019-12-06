@@ -107,6 +107,8 @@ echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $l
 
 else
 
+# Si le fichier d'erreur n'est pas vide.
+
 echo "Des erreurs ont été rencontrées :" >> $log/update_$jour-$heure
 
 cat $erreur >> $log/update_$jour-$heure
