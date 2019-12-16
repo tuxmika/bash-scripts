@@ -1,3 +1,5 @@
+
+
 #!/bin/bash
 # Script mises à jour Centos 
 # Le script va lister le nombre et le nom des paquets qui seront mis à jour.
@@ -7,11 +9,14 @@
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mutt
 
-log=/home/mickael/.updates
+log=/home/utilsateur/.updates
 destinataire=mail@mail.fr
 sujet="Mises à jour disponibles sur $HOSTNAME"
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
+erreur=/home/utilsateur/.updates/erreur.log
+
+> $erreur
 
 if [ ! -d $log ];then
 
@@ -72,9 +77,13 @@ yum upgrade -q -y 2> $log/erreur.log
 
 nombre_ok=$(grep -E 'Updated:|Installed' /var/log/yum.log | wc -l)
 
-case $? in
+# Si le fichier d'erreur est vide.
 
-0) echo "Les paquets suivants ont été mis à jour ou installés :" >> $log/update_$jour-$heure
+if [ ! -s $erreur ]
+
+then
+
+echo "Les paquets suivants ont été mis à jour ou installés :" >> $log/update_$jour-$heure
 
 echo "" >> $log/update_$jour-$heure
 
@@ -82,17 +91,29 @@ grep -E 'Updated:|Installed' /var/log/yum.log | awk '{print $5}' >> $log/update_
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure;; 
+echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure
 
-1) cat $log/erreur.log >> $log/update_$jour-$heure;;
+echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-esac
+else
+
+# Si le fichier d'erreur n'est pas vide.
+
+echo "Des erreurs ont été rencontrées :" >> $log/update_$jour-$heure
+
+cat $erreur >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
 echo -e "\tFin du traitement le $(date +%d-%B-%Y) à $(date +%H:%M:%S)" >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
+
+mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
+
+exit
+
+fi
 
 }
 
