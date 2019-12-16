@@ -1,3 +1,5 @@
+
+
 #!/bin/bash
 # Script mises à jour Centos 
 # Le script va lister le nombre et le nom des paquets qui seront mis à jour.
@@ -7,12 +9,12 @@
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mutt
 
-log=/home/utilsateur/.updates
+log=/home/utilisateur/.updates
 destinataire=mail@mail.fr
 sujet="Mises à jour disponibles sur $HOSTNAME"
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
-erreur=/home/utilsateur/.updates/erreur.log
+erreur=/home/utilisateur/.updates/erreur.log
 
 > $erreur
 
@@ -91,8 +93,6 @@ echo -e "-----------------------------------------------------------------------
 
 echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure
 
-echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
-
 else
 
 # Si le fichier d'erreur n'est pas vide.
@@ -112,7 +112,6 @@ mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $
 exit
 
 fi
-
 }
 
 kernel_reboot()
