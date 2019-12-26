@@ -6,7 +6,6 @@
 # Variables
 repertoire='/home/mickael/photos'
 centos='/etc/centos-release'
-
 # On teste la présence du fichier /etc/centos-release.
 
 if [ -f $centos ]
@@ -25,8 +24,9 @@ if [ $? -ne 0 ]
 
 yum -y install jpegoptim optipng 2>/dev/null
 
-  else
+fi
 
+else
 # Si on est sur une distribution Debian, on teste si jpegoptim optipng sont installés.
 
 which jpegoptim optipng &>/dev/null
@@ -39,11 +39,9 @@ if [ $? -ne 0 ]
 
 apt -y install jpegoptim optipng 2>/dev/null
 
-  fi
+fi
 
-    fi
-
-  fi
+fi
 
 clear
 
