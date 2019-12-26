@@ -49,7 +49,7 @@ clear
 
 # https://www.systutorials.com/docs/linux/man/1-jpegoptim/
 
-find "${repertoire}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) -exec jpegoptim -P -t --all-progressive --strip-all {} \;
+find "${repertoire}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) -exec jpegoptim -m90 -P -t --all-progressive --strip-all {} \;
 
 # https://linux.die.net/man/1/optipng
 
