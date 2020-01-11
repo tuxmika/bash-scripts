@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 # Script mises à jour Centos 
 # Le script va lister le nombre et le nom des paquets qui seront mis à jour.
