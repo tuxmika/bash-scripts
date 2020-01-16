@@ -3,7 +3,7 @@
 # Le script va lister le nombre et le nom des paquets qui seront mis à jour.
 # Il va ensuite les installer et pour terminer envoyer un mail récapitulatif.
 # Si un reboot est nécessaire suite à un upgrade de kernel , une notification sera inscrite en fin de mail.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mutt
 
