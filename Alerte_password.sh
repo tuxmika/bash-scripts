@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script notification changement mot de passe
 # Le script enverra un mail si le mot de passe n'a pas été changé depuis 60 jours.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : Postfix , mutt
 
