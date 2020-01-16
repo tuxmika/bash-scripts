@@ -3,7 +3,7 @@
 # Celui-ci fonctionne avec des fichiers autres que des photos.
 # Les photos auront des numéros séquentiels qui seront entre parenthèses.
 # Le renommage des noms de fichiers comprenant des espaces fonctionne avec le script.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # On entre le nom de renommage souhaité.
