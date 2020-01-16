@@ -4,7 +4,7 @@
 # Il va ensuite les installer et pour terminer envoyer un mail récapitulatif.
 # Une fois le traitement terminé ou si aucune mise à jour n'est disponible,un shutdown sera effectué. 
 # Icône notification : https://www.iconfinder.com/icons/118955/available_software_update_icon
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mutt
 # mettre dans /etc/sudoers : nom_utilisateur ALL=NOPASSWD: /usr/bin/updates
