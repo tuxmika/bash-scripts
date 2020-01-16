@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script de sauvegarde complète/incrémentale avec LFTP
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Pré-requis : lftp, MTA (Exim, Postfix, sSMTP...)
 
