@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script notification redémarrage après un update de kernel sur Centos et Debian.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mutt
 
