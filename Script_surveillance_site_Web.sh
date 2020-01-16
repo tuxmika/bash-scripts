@@ -3,7 +3,7 @@
 # Celui-ci qui va analyser le code de statut HTTP de vos sites web ( ok, moved permanently, not found etc...) et vous envoyer un mail si le statut n'est pas ok ( code 200 ).
 
 Le script va utiliser la commande curl ( Client URL Request Library ) pour effectuer des requêtes HTTP.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 sites="http://www.xxxx.fr http://www.yyyyy.fr" 
