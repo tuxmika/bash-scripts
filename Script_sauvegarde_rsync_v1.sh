@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script sauvegarde rsync V1
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 # Variables
