@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script analyse ClamAV
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Le script effectuera via un tâche cron que vous aurez programmé une analyse complète tous les dimanches et une analyse journalière qui scannera uniquement les fichiers modifiés ou crées depuis les dernières 24 heures.
 
