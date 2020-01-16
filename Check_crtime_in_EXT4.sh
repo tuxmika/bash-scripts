@@ -1,6 +1,6 @@
 #!/bin/bash
 # Obtenir la date de création de fichiers ou dossiers sur un système de fichiers EXT4.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
 IFS='
