@@ -2,7 +2,7 @@
 # Script mises à jour Centos 
 # Le script va lister le nombre et le nom des paquets qui seront mis à jour.
 # Il va ensuite les installer et pour terminer envoyer un mail récapitulatif.
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : mutt
 
