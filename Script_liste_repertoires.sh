@@ -1,6 +1,6 @@
 
 #!/bin/bash 
-# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Script pour afficher les statistiques des dossiers ( liste, nombre, taille totale, taille par dossier...).
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 
