@@ -52,6 +52,14 @@ esac
 echo "Envoi des fichiers sur $hostname à `date +%HH%M`" >> $log 
 
 # Envoi de la sauvegarde locale vers le serveur FTP 
+# manuel lftp : http://lftp.yar.ru/lftp-man.html
+# userftp, passftp, hostftp : identifiants FTP.
+# -e de lftp avec des arguments entre guillemets : spécifie la commande ou les commandes à éxécuter
+# mirror : Commande permettant d'effectuer une synchronisation entre un répertoire local et un répertoire distant.
+# -R de mirror : Permet la copie depuis l’emplacement local vers l’emplacement distant ( sans cette option, la copie s'effectue dans le sens distant > local ).
+# local : Votre chemin local.
+# distant : Votre chemin distant ( si un slash est ajouté à la fin du nom du répertoire distant, alors votre répertoire local sera créé à l'intérieur du répertoire cible sur le serveur).
+
 lftp ftp://$username:$password@$ftp_serveur -e "mirror -e -R $destination /home/user/$date;quit"  >> $log
 
 # Rotation des sauvegardes 
