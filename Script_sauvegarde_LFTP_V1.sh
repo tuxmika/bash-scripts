@@ -1,5 +1,5 @@
 #!/bin/bash 
-# Script de sauvegarde FTP
+# Script de sauvegarde LFTP local > distant
 # Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Pré-requis : lftp ( http://lftp.yar.ru )
