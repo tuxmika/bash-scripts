@@ -6,17 +6,17 @@
 # Icône notification : https://www.iconfinder.com/icons/118955/available_software_update_icon
 # Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
-# Prérequis : mutt
+
 # mettre dans /etc/sudoers : nom_utilisateur ALL=NOPASSWD: /usr/bin/updates
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
-dpkg=/var/log/dpkg.log
-log=/home/utilisateur/.updates
-erreur=/home/utilisateur/.updates/erreur.log
-destinataire=mail@mail.fr
+log=/home/username/.updates
+liste_ok=/var/log/dpkg.log
+log_ko=/home/username/.updates/erreur.log
+destinataire=updates@mail.fr
 
-> $erreur
+> $log_ko
 
 if [ ! -d $log ];then
 
@@ -24,8 +24,7 @@ mkdir $log
 
 fi
 
-# On définit le type d'interface qu'utilisera l'installateur.
-# https://manpages.debian.org/buster/debconf-doc/debconf.7.fr.html
+exec 2>$log_ko
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -55,7 +54,7 @@ notify-send -i /usr/share/pixmaps/software-update-icon.png "Aucune mise à jour 
 
 rm -rf $log/update_$jour-$heure
 
-sleep 10s && shutdown -h now
+sleep 20s && shutdown -h now
 
 fi
 
@@ -85,35 +84,19 @@ echo -e "\tEtape 3 : Installation des mises à jour" >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-> $dpkg
+> $liste_ok
 
-apt-get full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" 2> $log/erreur.log
+apt-get full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" 
 
-nombre_ok=$(grep "status installed" $dpkg | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
+nombre_ok=$(grep "status installed" $liste_ok | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
 
-# Si le fichier d'erreur est vide.
-
-if [ ! -s $erreur ]
+if [ "$?" -ne 0 ]
 
 then
 
-echo "Les paquets suivants ont été mis à jour ou installés :" >> $log/update_$jour-$heure
-
-echo "" >> $log/update_$jour-$heure
-
-grep "status installed" $dpkg | awk {'print $5" "$6" "$7'} >> $log/update_$jour-$heure
-
-echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
-
-echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure
-
-else
-
-# Si le fichier d'erreur n'est pas vide.
-
 echo "Des erreurs ont été rencontrées :" >> $log/update_$jour-$heure
 
-cat $erreur >> $log/update_$jour-$heure
+cat $log_ko >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
@@ -126,6 +109,12 @@ mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $
 sleep 20s && shutdown -h now
 
 fi
+
+grep "status installed" $liste_ok | awk {'print $5" "$6" "$7'} >> $log/update_$jour-$heure
+
+echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
+
+echo -e "\tNombre total de paquets mis à jour ou installés : $nombre_ok" >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
@@ -145,8 +134,7 @@ mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $
 
 export DEBIAN_FRONTEND=dialog
 
-# On purge les logs qui ont plus de 15 jours.
-
 find $log -type f -mtime +15 -exec rm -rf {} \;
 
-sleep 10s && shutdown -h now
+sleep 20s && shutdown -h now
+
