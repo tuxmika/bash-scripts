@@ -89,7 +89,7 @@ Une fois que la 4ème sauvegarde et la compression sont terminés, on effectue l
 
 nombre_sauvegardes=$(ls -1 $local/*.tar.gz | wc -l)
 
-ancien=$(ls -1 $local/*.tar.gz | head -1)
+ancien=$(ls -1rt $local/*.tar.gz | head -1)
 
 if [ $nombre_sauvegardes -eq $rotation ]
 
