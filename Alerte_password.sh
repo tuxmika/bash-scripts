@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script notification changement mot de passe
-# Le script enverra un mail si le mot de passe n'a pas été changé depuis 90 jours ou plus.
+# Le script enverra un mail si le mot de passe n'a pas été changé depuis 60 jours.
 # Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : Postfix , mutt
@@ -13,7 +13,7 @@ for user in $liste
 
 do
 
-# On cherche le nombre de jours écoulés entre le 1er janvier 1970  et le dernier changement du mot de passe.
+# On cherche le nombre de jours écoulés entre le 1er janvier 1970 et le dernier changement du mot de passe.
 
 timestamp_user=$(grep $user /etc/shadow | awk -F ":" '{print $3}')
 
