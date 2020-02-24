@@ -13,19 +13,33 @@ for user in $liste
 
 do
 
-timestamp_secondes=`grep $user /etc/shadow | awk -F ":" '{print $3*86400}'`
+# On cherche le nombre de jours écoulés entre le 1er janvier 1970  et le dernier changement du mot de passe.
 
-dernier_changement_secondes=$(date -d @$timestamp_secondes +%s)
+timestamp_user=$(grep $user /etc/shadow | awk -F ":" '{print $3}')
 
-dernier_changement_date=$(date -d @$timestamp_secondes +"%d %B %Y")
+# On convertit le résultat en secondes.
+
+dernier_changement_secondes=$((timestamp_user*86400))
+
+# On convertit le résultat en date sous la forme 'jour mois année'.
+
+dernier_changement_date=$(date -d @$timestamp_user +"%d %B %Y")
+
+# On convertit la date du jour en secondes.
 
 date_secondes=$(date +%s)
 
+# On calcule la différence entre la date du jour et celle du dernier changement.
+
 difference_secondes=$((date_secondes - dernier_changement_secondes))
+
+# On convertit le résultat en jours.
 
 difference_jours=$((difference_secondes / 86400))
 
-if [[ $difference_jours -ge 60 ]]
+# Si le résultat est égal ou supérieur à 90 jours, on envoie une notification.
+
+if [[ $difference_jours -ge 90 ]]
 
    then
 
@@ -40,3 +54,4 @@ echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<chan
 fi
 
 done
+
