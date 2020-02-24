@@ -7,7 +7,7 @@
 
 # Variables
 liste="mickael"
-destinataire="breizhmika@outlook.fr"
+destinataire="mail@mail.fr"
 
 for user in $liste
 
