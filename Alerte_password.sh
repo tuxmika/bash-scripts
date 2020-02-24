@@ -45,13 +45,10 @@ if [[ $difference_jours -ge 90 ]]
 
 sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
 
-corps="Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNAME a ete effectué le $dernier_changement_date ( $difference_jours jours )\n
-N'oubliez pas que la securite passe avant tout par un bon mot de passe"
-
+corps="Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNAME a ete effectué le $dernier_changement_date ( $difference_jours jours )"
 
 echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@mail.fr>' $destinataire
 
 fi
 
 done
-
