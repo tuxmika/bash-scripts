@@ -1,12 +1,12 @@
 #!/bin/bash
 # Script notification changement mot de passe
-# Le script enverra un mail si le mot de passe n'a pas été changé depuis 90 jours ou plus.
+# Le script enverra un mail si le mot de passe n'a pas été changé depuis 85 jours ou plus.
 # Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
 # Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
 # Prérequis : Postfix , mutt
 
 # Variables
-liste="user1 user2"
+liste="user"
 destinataire="mail@mail.fr"
 
 for user in $liste
@@ -33,19 +33,18 @@ difference_secondes=$((date_secondes - $timestamp_user))
 
 difference_jours=$((difference_secondes / 86400))
 
-# Si le résultat est égal ou supérieur à 90 jours, on envoie une notification.
+# Si le résultat est égal ou supérieur à 85 jours, on envoie une notification.
 
-if [[ $difference_jours -ge 90 ]]
+if [[ $difference_jours -ge 85 ]]
 
    then
 
 sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
 
-corps="Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNAME a ete effectué le $dernier_changement_date ( $difference_jours jours )"
+corps="Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNAME a été effectué le $dernier_changement_date ( $difference_jours jours )"
 
-echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@mail.fr>' $destinataire
+echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@tux.lan>' $destinataire
 
 fi
 
 done
-
