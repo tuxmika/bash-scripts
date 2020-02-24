@@ -6,7 +6,7 @@
 # Prérequis : Postfix , mutt
 
 # Variables
-liste="mickael"
+liste="user1 user2"
 destinataire="mail@mail.fr"
 
 for user in $liste
