@@ -1,3 +1,5 @@
+
+
 #!/bin/bash
 # Script notification changement mot de passe
 # Le script enverra un mail si le mot de passe n'a pas été changé depuis 90 jours ou plus.
@@ -6,20 +8,16 @@
 # Prérequis : Postfix , mutt
 
 # Variables
-liste="user1 user2"
-destinataire="mail@mail.fr"
+liste="mickael"
+destinataire="breizhmika@outlook.fr"
 
 for user in $liste
 
 do
 
-# On cherche le nombre de jours écoulés entre le 1er janvier 1970 et le dernier changement du mot de passe.
+# On cherche le nombre de jours écoulés entre le 1er janvier 1970 et le dernier changement du mot de passe et on le convertit en secondes.
 
-timestamp_user=$(grep $user /etc/shadow | awk -F ":" '{print $3}')
-
-# On convertit le résultat en secondes.
-
-dernier_changement_secondes=$((timestamp_user*86400))
+timestamp_user=$(grep $user /etc/shadow | awk -F ":" '{print $3*86400}')
 
 # On convertit le résultat en date sous la forme 'jour mois année'.
 
@@ -31,7 +29,7 @@ date_secondes=$(date +%s)
 
 # On calcule la différence entre la date du jour et celle du dernier changement.
 
-difference_secondes=$((date_secondes - dernier_changement_secondes))
+difference_secondes=$((date_secondes - $timestamp_user))
 
 # On convertit le résultat en jours.
 
@@ -52,3 +50,4 @@ echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<chan
 fi
 
 done
+
