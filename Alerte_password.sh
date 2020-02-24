@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 # Script notification changement mot de passe
 # Le script enverra un mail si le mot de passe n'a pas été changé depuis 90 jours ou plus.
