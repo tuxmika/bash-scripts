@@ -33,7 +33,7 @@ difference_secondes=$((date_secondes - $timestamp_user))
 
 difference_jours=$((difference_secondes / 86400))
 
-# Si le résultat est égal ou supérieur à 85 jours et plus petit ou égal à 90, on envoie une notification.
+# Si le résultat est égal ou supérieur à 85 jours et plus petit ou égal à 90, on envoie une notification sur le nombre de jours écoulés depuis le dernier changement.
 
 if [ $difference_jours -ge 85 -a $difference_jours -le 90 ]
 
