@@ -6,7 +6,7 @@
 # Prérequis : Postfix , mutt
 
 # Variables
-liste="mickael"
+liste="user"
 destinataire="mail@mail.fr"
 
 for user in $liste
@@ -65,7 +65,7 @@ sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
 
 corps="Les 90 jours pour le changement du mot de passe de passe de l'utilisateur $user sur $HOSTNAME sont dépassés depuis $expiration jour(s)"
 
-echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@mail.local.local>' $destinataire
+echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@mail.local>' $destinataire
 
 fi
 
