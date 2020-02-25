@@ -47,7 +47,7 @@ echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<chan
 
 elif
 
-# Si le résultat est supérieur à 90, on en voie une notification de dépassement.
+# Si le résultat est supérieur à 90, on envoie une notification de dépassement.
 
 [ $difference_jours -gt 90 ]
 
