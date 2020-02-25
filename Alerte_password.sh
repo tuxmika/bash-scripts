@@ -6,8 +6,8 @@
 # Prérequis : Postfix , mutt
 
 # Variables
-liste="mickael"
-destinataire="breizhmika@outlook.fr"
+liste="user"
+destinataire="mail@mail.fr"
 
 for user in $liste
 
@@ -45,17 +45,22 @@ corps="Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNAM
 
 echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@tux.local>' $destinataire
 
-else
+elif
 
-# Si le résultat est égal ou supérieur à 90 jours, on notifie le dépassement.
+# Si le résultat est supérieur à 90, on en voie une notification de dépassement.
+
+[ $difference_jours -gt 90 ]
+
+then
 
 sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
 
 corps="La date des 90 jours pour le changement du mot de passe de l'utilisateur $user sur $HOSTNAME a été dépassée ( $difference_jours jours )"
 
-echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@tux.local>' $destinataire
+echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@mail.local>' $destinataire
 
 fi
 
 done
+
 
