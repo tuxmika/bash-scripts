@@ -35,7 +35,7 @@ difference_jours=$((difference_secondes / 86400))
 
 expiration=$((90 - $difference_jours))
 
-# Si le résultat est égal ou supérieur à 85 jours et plus petit ou égal à 90, on envoie une notification.
+# Si le résultat est égal ou supérieur à 85 jours et plus petit ou égal à 90, on envoie une notification qu'il reste n jours.
 
 if [ $difference_jours -ge 85 -a $difference_jours -le 90 ]
 
@@ -49,7 +49,7 @@ echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<chan
 
 elif
 
-# Si le résultat est supérieur à 90, on envoie une notification de dépassement.
+# Si le résultat est supérieur à 90, on envoie une notification de dépassement depuis n jours.
 
 [ $difference_jours -gt 90 ]
 
