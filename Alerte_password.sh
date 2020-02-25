@@ -6,8 +6,8 @@
 # Prérequis : Postfix , mutt
 
 # Variables
-liste="user"
-destinataire="mail@mail.fr"
+liste="mickael"
+destinataire="breizhmika@outlook.fr"
 
 for user in $liste
 
@@ -33,9 +33,9 @@ difference_secondes=$((date_secondes - $timestamp_user))
 
 difference_jours=$((difference_secondes / 86400))
 
-# Si le résultat est égal ou supérieur à 85 jours, on envoie une notification.
+# Si le résultat est égal ou supérieur à 85 jours et plus petit ou égal à 90, on envoie une notification.
 
-if [ $difference_jours -ge 85 ]
+if [ $difference_jours -ge 85 -a $difference_jours -le 90 ]
 
 then
 
@@ -43,8 +43,19 @@ sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
 
 corps="Le dernier changement du mot de passe de l'utilisateur $user sur $HOSTNAME a été effectué le $dernier_changement_date ( $difference_jours jours )"
 
-echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@mail.local>' $destinataire
+echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@tux.local>' $destinataire
+
+else
+
+# Si le résultat est égal ou supérieur à 90 jours, on notifie le dépassement.
+
+sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
+
+corps="La date des 90 jours pour le changement du mot de passe de l'utilisateur $user sur $HOSTNAME a été dépassée ( $difference_jours jours )"
+
+echo -e "$corps" | mutt -s "$sujet" -e 'my_hdr From:Changement_mot_de_passe<changement_mot_de_passe@tux.local>' $destinataire
 
 fi
 
 done
+
