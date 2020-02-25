@@ -33,6 +33,8 @@ difference_secondes=$((date_secondes - $timestamp_user))
 
 difference_jours=$((difference_secondes / 86400))
 
+# On calcule le nombre de jours avant expiration.
+
 expiration=$((90 - $difference_jours))
 
 # Si le résultat est égal ou supérieur à 85 jours et plus petit ou égal à 90, on envoie une notification qu'il reste n jours.
@@ -54,6 +56,8 @@ elif
 [ $difference_jours -gt 90 ]
 
 then
+
+# # On calcule le nombre de jours de retard.
 
 expiration=$(($difference_jours -90))
 
