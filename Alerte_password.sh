@@ -37,7 +37,7 @@ difference_jours=$((difference_secondes / 86400))
 
 if [ $difference_jours -ge 85 ]
 
-   then
+then
 
 sujet="Changement mot de passe utilisateur $user sur $HOSTNAME"
 
