@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #!/bin/bash 
 # Script de sauvegarde LFTP et du FTP sur SSL/TLS distant > local
 # Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
