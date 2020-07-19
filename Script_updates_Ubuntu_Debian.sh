@@ -44,6 +44,18 @@ apt-get update >> $log/update_$jour-$heure
 
 nombre=$(apt-get -s full-upgrade | grep "Inst" | awk '{print $2}' | wc -l )
 
+if [ -s $log_ko ]; then
+
+cat $log_ko >> $log/update_$jour-$heure
+
+s-nail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
+
+rm -rf $log/update_$jour-$heure
+
+sleep 20s && shutdown -h now
+
+fi
+
 if [ $nombre -ne 0 ];then
 
 notify-send -i /usr/share/pixmaps/software-update-icon.png "$nombre mise(s) à jour disponible(s)"
@@ -53,6 +65,8 @@ else
 notify-send -i /usr/share/pixmaps/software-update-icon.png "Aucune mise à jour disponible..." "L'ordinateur va maintenant s'arrêter..."
 
 rm -rf $log/update_$jour-$heure
+
+/usr/bin/zerohosts
 
 sleep 20s && shutdown -h now
 
@@ -104,7 +118,7 @@ echo "Fin du traitement le $(date +%d-%B-%Y) à $(date +%H:%M:%S)" >> $log/updat
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
+s-nail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
 
 sleep 20s && shutdown -h now
 
@@ -130,7 +144,7 @@ echo "Fin du traitement le $(date +%d-%B-%Y) à $(date +%H:%M:%S)" >> $log/updat
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-mutt -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
+s-nail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
 
 export DEBIAN_FRONTEND=dialog
 
