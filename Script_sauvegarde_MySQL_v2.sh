@@ -65,7 +65,7 @@ if [ "$?" -eq 0 ]
 
     then
 
-ls -lrth $repertoire_dump |awk '{print $NF" "$5}' | tail -1 >> $log/$export-$date.log >> $log/$export-$date.log
+ls -lrth $repertoire_dump |awk '{print $NF" "$5}' | tail -1 >> $log/$export-$date.log 
 
 echo "" >> $log/$export-$date.log
 
