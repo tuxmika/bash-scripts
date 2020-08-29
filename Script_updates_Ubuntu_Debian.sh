@@ -4,17 +4,17 @@
 # Il va ensuite les installer et pour terminer envoyer un mail récapitulatif.
 # Une fois le traitement terminé ou si aucune mise à jour n'est disponible,un shutdown sera effectué. 
 # Icône notification : https://www.iconfinder.com/icons/118955/available_software_update_icon
-# Licence CC BY-NC-SA 4.0 ( https://creativecommons.org/licenses/by-nc-sa/4.0/ )
-# Auteur : Mickaël BONNARD ( https://www.mickaelbonnard.fr )
+# Licence MIT ( http://choosealicense.com/licenses/mit/ )
+# Auteur : Mickaël BONNARD
 
 # mettre dans /etc/sudoers : nom_utilisateur ALL=NOPASSWD: /usr/bin/updates
 
 jour=`date +%d-%m-%Y`
 heure=`date +%H:%M:%S`
-log=/home/username/.updates
-liste_ok=/var/log/dpkg.log
-log_ko=/home/username/.updates/erreur.log
-destinataire=updates@mail.fr
+log=/home/utilisateur/.updates
+log_ok=/var/log/dpkg.log
+log_ko=/home/utilisateur/.updates/erreur.log
+destinataire=utilisateur@mail.fr
 
 > $log_ko
 
@@ -24,6 +24,7 @@ mkdir $log
 
 fi
 
+exec 1>$log_ok
 exec 2>$log_ko
 
 export DEBIAN_FRONTEND=noninteractive
@@ -66,8 +67,6 @@ notify-send -i /usr/share/pixmaps/software-update-icon.png "Aucune mise à jour 
 
 rm -rf $log/update_$jour-$heure
 
-/usr/bin/zerohosts
-
 sleep 20s && shutdown -h now
 
 fi
@@ -98,11 +97,11 @@ echo -e "\tEtape 3 : Installation des mises à jour" >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
-> $liste_ok
+> $log_ok
 
 apt-get full-upgrade -y -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" 
 
-nombre_ok=$(grep "status installed" $liste_ok | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
+nombre_ok=$(grep "status installed" $log_ok | awk {'print $5'} | awk -F : {'print $1'} | wc -l)
 
 if [ "$?" -ne 0 ]
 
@@ -120,11 +119,13 @@ echo -e "-----------------------------------------------------------------------
 
 s-nail -s "Mises à jour du $(date +%d" "%B" "%Y) sur $HOSTNAME" $destinataire < $log/update_$jour-$heure
 
+sudo rm -rf /home/utilisateur/sent
+
 sleep 20s && shutdown -h now
 
 fi
 
-grep "status installed" $liste_ok | awk {'print $5" "$6" "$7'} >> $log/update_$jour-$heure
+grep "status installed" $log_ok | awk {'print $5" "$6" "$7'} >> $log/update_$jour-$heure
 
 echo -e "-------------------------------------------------------------------------------------------------"  >> $log/update_$jour-$heure
 
@@ -151,4 +152,3 @@ export DEBIAN_FRONTEND=dialog
 find $log -type f -mtime +15 -exec rm -rf {} \;
 
 sleep 20s && shutdown -h now
-
