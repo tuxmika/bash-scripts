@@ -121,4 +121,6 @@ echo "-------------------------------------------------------------"
 echo "Fin de la sauvegarde le $(date +%d-%m-%Y) à `date +%T`" 
 echo "-------------------------------------------------------------" 
 
+# On envoie un mail récapitulatif.
+
 cat $log | s-nail -s "Sauvegarde de dossier du $jour" mail@mail.fr
