@@ -66,6 +66,8 @@ echo "-------------------------------------------------------------"
 echo  "Compression de la sauvegarde"
 echo "-------------------------------------------------------------"
 
+# On se place dans le dossier de sauvegarde et on compresse le dossier.
+
 cd $local
 
 tar -czf dossier_`date +%d-%m-%Y`.tar.gz dossier_`date +%d-%m-%Y`
