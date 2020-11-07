@@ -66,7 +66,7 @@ echo "-------------------------------------------------------------"
 echo  "Compression de la sauvegarde"
 echo "-------------------------------------------------------------"
 
-# On se place dans le dossier de sauvegarde et on compresse le dossier.
+# On se place dans le répertoire de sauvegarde et on compresse le dossier.
 
 cd $local
 
