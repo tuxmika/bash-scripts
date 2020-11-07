@@ -12,6 +12,8 @@ log=/media/user/backup/logs/sauvegarde_dossier_`date +%d-%m-%Y`
 rotation=11
 ftp="ftp.mickaelbonnard.fr"
 
+# Si le repertoire de logs et le point de montage n'existent pas, ils sont crées.
+
 test -d $logs || mkdir -p $logs
 
 test -d $point_montage || mkdir -p $point_montage
