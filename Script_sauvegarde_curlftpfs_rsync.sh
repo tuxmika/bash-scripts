@@ -40,7 +40,7 @@ echo "-------------------------------------------------------------"
 
 rsync -az --stats $point_montage/dossier/ $local/dossier_`date +%d-%m-%Y`
 
-# Si des erreurs, alors on effectue le démontage et on envoie le mail et on quitte le script.
+# Si des erreurs, alors on effectue le démontage, on envoie le mail et on quitte le script.
 
 if [ "$?" -ne 0 ]
 
@@ -70,7 +70,7 @@ cd $local
 
 tar -czf dossier_`date +%d-%m-%Y`.tar.gz dossier_`date +%d-%m-%Y`
 
-# Si des erreurs, alors on effectue le démontage et on envoie le mail et on quitte le script.
+# Si des erreurs, alors on effectue le démontage, on envoie le mail et on quitte le script.
 
 if [ "$?" -ne 0 ]
 
