@@ -36,7 +36,7 @@ echo "-------------------------------------------------------------"
 echo  "Sauvegarde Rsync"
 echo "-------------------------------------------------------------"
 
-rsync -az --stats $point_montage/dossier/ $local/dossier_`date +%d-%B-%Y`
+rsync -az --stats $point_montage/dossier/ $local/dossier_`date +%d-%m-%Y`
 
 if [ "$?" -ne 0 ]
 
