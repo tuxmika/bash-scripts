@@ -8,7 +8,7 @@ jour=`date +%d-%B-%Y`
 point_montage="/media/user/backup/ftp"
 local="/media/user/backup/"
 logs=/media/user/backup/logs
-log=/media/user/backup/logs/sauvegarde_wiki_`date +%d-%m-%Y`
+log=/media/user/backup/logs/sauvegarde_dossier_`date +%d-%m-%Y`
 rotation=11
 ftp="ftp.user.fr"
 
