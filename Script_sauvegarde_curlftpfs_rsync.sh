@@ -36,7 +36,7 @@ echo "-------------------------------------------------------------"
 echo  "Sauvegarde Rsync"
 echo "-------------------------------------------------------------"
 
-rsync -azXXX --stats $point_montage/dossier/ $local/dossier_`date +%d-%B-%Y`
+rsync -az --stats $point_montage/dossier/ $local/dossier_`date +%d-%B-%Y`
 
 # Si des erreurs lors de la sauvegarde
 
