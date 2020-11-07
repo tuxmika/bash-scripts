@@ -35,7 +35,7 @@ echo "-------------------------------------------------------------"
 echo  "Sauvegarde Rsync"
 echo "-------------------------------------------------------------"
 
-rsync -az --stats $point_montage/$distant $local/$distant-`date +%d-%B-%Y`
+rsync -az --stats $point_montage/$distant/ $local/$distant-`date +%d-%B-%Y`
 
 echo "-------------------------------------------------------------" 
 echo  "Démontage du FTP distant"
