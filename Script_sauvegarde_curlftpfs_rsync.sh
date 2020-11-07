@@ -15,6 +15,8 @@ ftp="ftp.domaine.fr"
 
 test -d $logs || mkdir -p $logs
 
+test -d $point_montage || mkdir -p $point_montage
+
 # Tout sera écrit dans /home/user/sauvegardes/logs/sauvegarde_`date +%d-%m-%Y`"
 
 exec > $log 2>&1
