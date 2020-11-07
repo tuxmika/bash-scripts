@@ -27,7 +27,7 @@ echo "-------------------------------------------------------------"
 echo  "Montage du FTP distant"
 echo "-------------------------------------------------------------"
 
-curlftpfs $ftp /home/user/ftp && echo montage terminé
+curlftpfs $ftp $point_montage && echo montage terminé
 
 echo "-------------------------------------------------------------" 
 echo  "Sauvegarde Rsync"
