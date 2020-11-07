@@ -10,7 +10,7 @@ local="/media/user/backup/"
 logs=/media/user/backup/logs
 log=/media/user/backup/logs/sauvegarde_dossier_`date +%d-%m-%Y`
 rotation=11
-ftp="ftp.mickaelbonnard.fr"
+ftp="ftp.user.fr"
 
 # Si le repertoire de logs et le point de montage n'existent pas, ils sont crées.
 
